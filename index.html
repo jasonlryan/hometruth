@@ -1430,6 +1430,184 @@
       grid-template-columns: 1fr;
     }
   }
+
+  /* ─── MOBILE OPTIMIZATION PASS (NO DESKTOP IMPACT) ─── */
+  @media (max-width: 1023px) {
+    nav {
+      padding: 12px 16px;
+    }
+    nav.scrolled {
+      padding: 10px 16px;
+    }
+    .logo-wordmark {
+      font-size: 20px;
+    }
+    .nav-dots {
+      display: none;
+    }
+
+    section {
+      min-height: auto;
+      display: block;
+      padding: 84px 16px 56px;
+    }
+    .section-inner {
+      max-width: 100%;
+    }
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(28px, 8.3vw, 38px);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .section-subtitle {
+      max-width: 100%;
+      margin-bottom: 18px;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .hero {
+      min-height: 92svh;
+      padding-top: 118px;
+      padding-bottom: 44px;
+      align-items: flex-start;
+    }
+    .hero-content {
+      width: 100%;
+      text-align: left;
+    }
+    .hero-tagline {
+      letter-spacing: 2px;
+      font-size: 11px;
+    }
+    .hero-logo-big {
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .hero-logo-big .logo-wordmark-big {
+      font-size: clamp(30px, 9vw, 44px);
+    }
+    .hero h1 {
+      font-size: clamp(34px, 10vw, 56px);
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+    .hero-subtitle {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .hero-divider {
+      margin: 0;
+    }
+
+    .problem-grid,
+    .vision-pillars,
+    .tech-stack,
+    .insight-grid,
+    .netzero-proof,
+    .pillar-grid,
+    .timeline,
+    .gtm-phases,
+    .revenue-timeline,
+    .revenue-streams,
+    .team-grid,
+    .status-grid,
+    .kpi-list,
+    .ask-allocation {
+      grid-template-columns: 1fr !important;
+      gap: 12px;
+    }
+
+    .problem-card,
+    .pillar,
+    .flywheel-node,
+    .flywheel-detail,
+    .tech-card,
+    .insight-card,
+    .proof,
+    .pillar-item,
+    .gtm-card,
+    .revenue-phase,
+    .stream,
+    .team-card,
+    .status-card,
+    .alloc-item {
+      padding: 18px;
+      border-radius: 12px;
+    }
+
+    #problem .problem-card .stat,
+    #netzero .proof .val {
+      font-size: clamp(30px, 9vw, 38px);
+      margin-bottom: 6px;
+    }
+    #flywheel .dual-flywheel-layout,
+    #climate .climate-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    #flywheel .flywheel-graphic {
+      width: 100%;
+      max-width: 280px;
+      max-height: none;
+      margin: 6px auto;
+    }
+    #climate .climate-visual,
+    #climate .climate-content {
+      padding: 20px;
+    }
+    #climate .climate-stat-row {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    #team .team-grid {
+      margin-top: 20px;
+    }
+    #team .team-avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+    }
+    p,
+    li {
+      font-size: 16px;
+      line-height: 1.62;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .brand-bar {
+      height: 2px;
+    }
+    section {
+      padding: 80px 14px 50px;
+    }
+    .section-title {
+      font-size: clamp(26px, 9vw, 34px);
+    }
+    .section-subtitle,
+    p,
+    li {
+      font-size: 15.5px;
+      line-height: 1.58;
+    }
+    .hero {
+      padding-top: 108px;
+    }
+    .hero h1 {
+      font-size: clamp(30px, 10vw, 44px);
+    }
+    .hero-subtitle {
+      font-size: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -2173,6 +2351,8 @@
   };
 
   window.addEventListener('keydown', (e) => {
+    if (window.innerWidth < 1024) return;
+
     const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
     const isEditable = tag === 'input' || tag === 'textarea' || tag === 'select' || (e.target && e.target.isContentEditable);
     if (isEditable) return;
