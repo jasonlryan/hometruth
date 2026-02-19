@@ -362,85 +362,52 @@
   .pillar h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
   .pillar p { font-size: 14px; color: var(--ht-mid-grey); line-height: 1.6; font-weight: 300; }
 
-  /* ─── FLYWHEEL ─── */
-  .flywheel-section { background: var(--ht-dark); }
-
-  .flywheel-container {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 56px; align-items: center;
+  /* ─── DUAL FLYWHEEL (MATCH DECK STYLE) ─── */
+  .flywheel-header {
+    text-align: left;
+    margin-bottom: 34px;
+  }
+  .flywheel-header .section-title {
+    margin-bottom: 8px;
+  }
+  .flywheel-header .section-subtitle {
+    max-width: 980px;
+    margin-bottom: 0;
   }
 
-  .flywheel-visual {
-    position: relative;
-    width: 100%; aspect-ratio: 1;
-    display: flex; align-items: center; justify-content: center;
+  .dual-flywheel-layout {
+    display: grid;
+    grid-template-columns: 1fr 360px 1fr;
+    gap: 28px;
+    align-items: center;
   }
-  .flywheel-ring {
-    position: absolute; border-radius: 50%; border: 2px solid;
-    animation: spin-slow 24s linear infinite;
+  .fly-col {
+    color: #213752;
   }
-  .flywheel-ring.outer { width: 88%; height: 88%; border-color: rgba(0, 180, 216, 0.15); }
-  .flywheel-ring.mid {
-    width: 70%; height: 70%;
-    border-color: rgba(139, 63, 160, 0.12);
-    animation-direction: reverse; animation-duration: 18s;
+  .fly-col h3 {
+    font-size: 22px;
+    color: #42A8E8;
+    margin-bottom: 10px;
+    line-height: 1.25;
   }
-  .flywheel-ring.inner {
-    width: 50%; height: 50%;
-    border-color: rgba(232, 101, 26, 0.12);
-    animation-duration: 14s;
-  }
-  @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-  .flywheel-center { position: relative; z-index: 2; text-align: center; }
-  .flywheel-center p {
-    font-size: 11px; color: var(--ht-mid-grey);
-    text-transform: uppercase; letter-spacing: 3px;
-    margin-top: 12px;
+  .fly-col p {
+    font-size: 17px;
+    line-height: 1.72;
+    color: #2D455F;
+    margin-bottom: 14px;
   }
 
-  .flywheel-node {
-    position: absolute;
-    padding: 10px 16px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 8px;
-    font-size: 12px; font-weight: 400; letter-spacing: 0.3px;
-    white-space: nowrap;
-    transition: all 0.3s ease;
+  .dual-wheel-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .flywheel-node:hover {
-    background: rgba(0, 180, 216, 0.08);
-    border-color: var(--ht-cyan);
-    transform: scale(1.05);
+  .flywheel-graphic {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    display: block;
   }
-  .flywheel-node.n1 { top: 2%; left: 50%; transform: translateX(-50%); }
-  .flywheel-node.n2 { top: 22%; right: 0%; }
-  .flywheel-node.n3 { bottom: 22%; right: 0%; }
-  .flywheel-node.n4 { bottom: 2%; left: 50%; transform: translateX(-50%); }
-  .flywheel-node.n5 { bottom: 22%; left: 0%; }
-  .flywheel-node.n6 { top: 22%; left: 0%; }
-
-  .flywheel-details h3 {
-    font-size: 28px; font-weight: 700; margin-bottom: 28px;
-  }
-  .flywheel-detail {
-    display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start;
-  }
-  .flywheel-detail .marker {
-    width: 36px; height: 36px; border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; position: relative;
-  }
-  .flywheel-detail .marker .b1 {
-    position: absolute; width: 22px; height: 22px; border-radius: 3px; top: 2px; left: 2px;
-  }
-  .flywheel-detail .marker .b2 {
-    position: absolute; width: 22px; height: 22px; border-radius: 3px; bottom: 2px; right: 2px; opacity: 0.5;
-  }
-
-  .flywheel-detail h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-  .flywheel-detail p { font-size: 14px; color: var(--ht-mid-grey); line-height: 1.6; font-weight: 300; }
 
   /* ─── HOW IT WORKS ─── */
   .how-section { background: linear-gradient(180deg, #0A1018, var(--ht-dark)); }
@@ -519,7 +486,7 @@
   .climate-content .section-title { margin-bottom: 20px; font-size: 36px; }
   .climate-content p { font-size: 15px; color: var(--ht-mid-grey); line-height: 1.7; margin-bottom: 14px; font-weight: 300; }
 
-  .climate-stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+  .climate-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
   .climate-stat {
     padding: 18px; border-radius: 8px;
     background: rgba(67, 176, 42, 0.06);
@@ -616,7 +583,7 @@
   .revenue-phase p { font-size: 13px; color: var(--ht-mid-grey); line-height: 1.6; font-weight: 300; }
 
   .revenue-streams {
-    display: grid; grid-template-columns: repeat(4, 1fr);
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 14px; margin-top: 40px;
   }
   .stream {
@@ -638,7 +605,7 @@
   /* ─── TEAM ─── */
   .team-section { background: var(--ht-dark); }
 
-  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
   .team-card {
     padding: 40px; border-radius: 12px;
     background: rgba(255,255,255,0.02);
@@ -652,6 +619,13 @@
     display: flex; align-items: center; justify-content: center;
     font-size: 26px; font-weight: 700;
     margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   .team-card:nth-child(1) .team-avatar {
     background: linear-gradient(135deg, rgba(0, 180, 216, 0.2), rgba(139, 63, 160, 0.1));
@@ -661,6 +635,10 @@
     background: linear-gradient(135deg, rgba(232, 101, 26, 0.2), rgba(139, 63, 160, 0.1));
     color: var(--ht-orange);
   }
+  .team-card:nth-child(3) .team-avatar {
+    background: linear-gradient(135deg, rgba(67, 176, 42, 0.2), rgba(0, 180, 216, 0.1));
+    color: var(--ht-green);
+  }
 
   .team-card h3 { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
   .team-card .role {
@@ -669,6 +647,7 @@
   }
   .team-card:nth-child(1) .role { color: var(--ht-cyan); }
   .team-card:nth-child(2) .role { color: var(--ht-orange); }
+  .team-card:nth-child(3) .role { color: var(--ht-green); }
   .team-card p { font-size: 14px; color: var(--ht-mid-grey); line-height: 1.6; font-weight: 300; }
   .team-logos { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
   .team-logo-tag {
@@ -696,7 +675,7 @@
     margin-bottom: 48px;
   }
   .ask-allocation {
-    display: grid; grid-template-columns: repeat(4, 1fr);
+    display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 16px; max-width: 860px; margin: 0 auto 48px;
   }
   .alloc-item {
@@ -732,6 +711,62 @@
   }
   .ask-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0, 180, 216, 0.3); }
 
+  /* ─── DECK STRUCTURE ADDITIONS ─── */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+  }
+  .insight-card {
+    padding: 28px;
+    border-radius: 12px;
+    background: #FFFFFF;
+    border: 1px solid #DEE6EF;
+    box-shadow: 0 8px 24px rgba(10, 36, 68, 0.06);
+  }
+  .insight-card h3 {
+    font-size: 22px;
+    color: #13273E;
+    margin-bottom: 12px;
+  }
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .status-item {
+    background: #FFFFFF;
+    border: 1px solid #DEE6EF;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(10, 36, 68, 0.06);
+  }
+  .status-item h3 {
+    font-size: 18px;
+    color: #13273E;
+    margin-bottom: 10px;
+  }
+  .kpi-list {
+    margin-top: 22px;
+    display: grid;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+  }
+  .kpi-list li {
+    padding: 12px 14px;
+    border: 1px solid #D9E4EF;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: #2F4965;
+  }
+  .cta-final {
+    text-align: center;
+    padding-top: 10px;
+  }
+
   /* ─── FOOTER ─── */
   footer {
     padding: 48px; text-align: center;
@@ -766,8 +801,8 @@
     section { padding: 80px 24px; }
     nav { padding: 14px 24px; }
     .vision-pillars, .tech-stack, .gtm-phases, .revenue-timeline,
-    .ask-allocation { grid-template-columns: 1fr; }
-    .flywheel-container, .climate-grid, .team-grid { grid-template-columns: 1fr; }
+    .ask-allocation, .insight-grid, .status-grid { grid-template-columns: 1fr; }
+    .dual-flywheel-layout, .climate-grid, .team-grid { grid-template-columns: 1fr; }
     .revenue-streams { grid-template-columns: repeat(2, 1fr); }
     .hero-stats { gap: 32px; }
     .flywheel-visual { max-width: 340px; margin: 0 auto; }
@@ -787,6 +822,221 @@
   @media (min-width: 1024px) { .section-y { padding-top: 6rem; padding-bottom: 6rem; } }
   .section-y-sm { padding-top: 3rem; padding-bottom: 3rem; }
   @media (min-width: 1024px) { .section-y-sm { padding-top: 4rem; padding-bottom: 4rem; } }
+
+  /* ─── INVESTOR READABILITY REFRESH (LIGHT THEME) ─── */
+  html { scroll-snap-type: none; }
+
+  body {
+    background: #F5F7FB;
+    color: #132235;
+    font-weight: 400;
+  }
+
+  nav {
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(19, 34, 53, 0.1);
+    box-shadow: 0 8px 24px rgba(8, 30, 64, 0.06);
+  }
+  nav.scrolled { background: rgba(255, 255, 255, 0.98); }
+  .logo-link { color: #132235; }
+  .nav-dot { background: rgba(19, 34, 53, 0.18); }
+  .nav-dot:hover { background: rgba(0, 180, 216, 0.45); }
+
+  section {
+    min-height: auto;
+    padding: 92px 48px;
+    scroll-snap-align: none;
+  }
+  .section-inner { max-width: 1120px; }
+
+  .hero {
+    min-height: 88vh;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F9FF 100%);
+  }
+  .hero-bg {
+    background:
+      radial-gradient(ellipse 65% 45% at 50% 0%, rgba(0, 180, 216, 0.09) 0%, transparent 65%),
+      radial-gradient(ellipse 45% 40% at 80% 80%, rgba(139, 63, 160, 0.08) 0%, transparent 58%),
+      radial-gradient(ellipse 50% 40% at 20% 90%, rgba(232, 101, 26, 0.08) 0%, transparent 58%);
+  }
+  .hero-tagline { color: #5A6B82; }
+  .hero h1 { color: #0D1D30; }
+  .hero-subtitle {
+    color: #334A63;
+    max-width: 740px;
+    font-size: clamp(18px, 1.9vw, 22px);
+    line-height: 1.72;
+  }
+  .hero-stat .label { color: #4B5F78; }
+
+  .section-title { color: #0E1E32; }
+  .section-subtitle {
+    color: #3E5570;
+    max-width: 760px;
+    font-size: 20px;
+    line-height: 1.75;
+  }
+
+  .problem,
+  .vision,
+  .flywheel-section,
+  .how-section,
+  .climate-section,
+  .gtm-section,
+  .revenue-section,
+  .team-section,
+  .ask-section {
+    background: #FFFFFF;
+  }
+
+  .problem-card,
+  .pillar,
+  .flywheel-node,
+  .flywheel-detail,
+  .tech-card,
+  .climate-visual,
+  .climate-stat,
+  .gtm-card,
+  .revenue-phase,
+  .stream,
+  .team-card,
+  .alloc-item {
+    background: #FFFFFF;
+    border: 1px solid #DEE6EF;
+    box-shadow: 0 8px 24px rgba(10, 36, 68, 0.06);
+  }
+
+  .problem-card:hover,
+  .pillar:hover,
+  .gtm-card:hover,
+  .revenue-phase:hover,
+  .team-card:hover {
+    transform: translateY(-4px);
+    border-color: #C6D5E5;
+    box-shadow: 0 14px 30px rgba(10, 36, 68, 0.1);
+  }
+
+  .problem-card h3,
+  .pillar h3,
+  .tech-card h3,
+  .climate-content h3,
+  .gtm-card h3,
+  .revenue-phase h3,
+  .team-card h3 {
+    color: #0F2238;
+  }
+  .problem-card p,
+  .pillar p,
+  .tech-card p,
+  .climate-content p,
+  .gtm-card p,
+  .gtm-card li,
+  .flywheel-detail p,
+  .revenue-phase p,
+  .stream p,
+  .team-card p,
+  .alloc-item p,
+  .alloc-item .alloc-label {
+    color: #3B526D;
+    font-size: 17px;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  .alloc-item .alloc-label {
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .tech-tag,
+  .team-logo-tag {
+    background: #F0F5FB;
+    border-color: #D6E1ED;
+    color: #314A66;
+  }
+
+  .revenue-timeline::before {
+    background: linear-gradient(90deg, rgba(232, 101, 26, 0.3), rgba(139, 63, 160, 0.3), rgba(0, 180, 216, 0.3));
+  }
+
+  /* Investor request: no bold in titles/headlines */
+  .hero h1,
+  .hero h1 strong,
+  .hero h1 .gradient-text,
+  .section-title,
+  .problem-card h3,
+  .pillar h3,
+  .flywheel-details h3,
+  .flywheel-detail h4,
+  .tech-card h3,
+  .climate-content h3,
+  .gtm-card h3,
+  .revenue-phase h3,
+  .stream h4,
+  .team-card h3 {
+    font-weight: 400;
+  }
+
+  .hero-stat .number,
+  .problem-card .stat,
+  .climate-stat .val,
+  .gtm-card .phase-num,
+  .revenue-target,
+  .ask-amount,
+  .alloc-item .pct {
+    font-weight: 400;
+  }
+
+  footer {
+    background: #FFFFFF;
+    border-top: 1px solid #DEE6EF;
+    color: #11253A;
+  }
+  footer .footer-tagline { color: #4D627B; }
+  footer p { color: #5D7188; }
+
+  @media (max-width: 768px) {
+    section { padding: 76px 24px; }
+    .hero { min-height: auto; padding-top: 140px; }
+    .hero-subtitle, .section-subtitle { font-size: 19px; }
+    .dual-flywheel-layout { gap: 18px; }
+    .flywheel-header { margin-bottom: 24px; }
+    .fly-col h3 { font-size: 28px; }
+    .flywheel-graphic { max-width: 280px; }
+    .climate-stat-row { grid-template-columns: 1fr; }
+  }
+
+  /* Global body copy scale increase */
+  p,
+  li {
+    font-size: 18px;
+    line-height: 1.78;
+  }
+
+  /* Hard enforce: no bold anywhere on page */
+  h1, h2, h3, h4, h5, h6,
+  strong, b,
+  .section-label,
+  .hero-stat .number,
+  .problem-card .stat,
+  .climate-stat .val,
+  .gtm-card .phase-num,
+  .revenue-target,
+  .ask-amount,
+  .alloc-item .pct,
+  .ask-cta {
+    font-weight: 400 !important;
+  }
+
+  @media (max-width: 768px) {
+    p,
+    li {
+      font-size: 17px;
+      line-height: 1.72;
+    }
+  }
 </style>
 </head>
 <body>
@@ -808,33 +1058,14 @@
   <div class="hero-bg"></div>
   <div class="hero-blocks" id="heroBlocks"></div>
   <div class="hero-content">
-    <div class="hero-tagline">Your Personal Property Assistant</div>
+    <div class="hero-tagline">YOUR PERSONAL PROPERTY ASSISTANT</div>
     <div class="hero-logo-big">
       <img src="images/hometruth-icon.svg" alt="" width="72" height="72" class="hero-logo-img">
       <span class="logo-wordmark-big">Home<span class="truth">Truth</span></span>
     </div>
-    <h1>
-      The Property Trust Platform<br>
-      That <span class="gradient-text">Changes Everything</span>
-    </h1>
-    <p class="hero-subtitle">
-      True property intelligence. One verified record per home — combining AI, blockchain, and open data to build the trust layer UK property has never had.
-    </p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="number">£9T</div>
-        <div class="label">UK Property Market</div>
-      </div>
-      <div class="hero-stat">
-        <div class="number">0%</div>
-        <div class="label">Trust Infrastructure</div>
-      </div>
-      <div class="hero-stat">
-        <div class="number">28M</div>
-        <div class="label">UK Homes</div>
-      </div>
-    </div>
-    <div class="hero-divider"></div>
+    <h1 class="animate-in delay-1">The Property Trust Platform That Changes Everything</h1>
+    <p class="hero-subtitle animate-in delay-2">True Property Intelligence</p>
+    <div class="hero-divider animate-in delay-3"></div>
   </div>
 </section>
 
@@ -843,8 +1074,11 @@
   <div class="section-inner">
     <div class="animate-in">
       <div class="section-label orange">The Problem</div>
-      <h2 class="section-title"><span class="thin">A £9 Trillion Market</span><br>Built on Guesswork</h2>
-      <p class="section-subtitle">The UK property ecosystem is broken at every layer — from buyers making the biggest financial decision of their lives, to insurers pricing risk worth billions.</p>
+      <h2 class="section-title">The Problem: £9 Trillion Market, Zero Trust</h2>
+      <p class="section-subtitle">
+        At the heart of our economy sits our most significant asset: the home.<br>
+        Yet the ecosystem around it — insurance, finance, maintenance — still runs on guesswork, assumption, and bad data.
+      </p>
     </div>
     <div class="problem-grid">
       <div class="problem-card animate-in delay-1">
@@ -894,7 +1128,8 @@
       <div class="section-label cyan">The Vision</div>
       <h2 class="section-title">The <span class="grad-underline">Truth</span> Platform</h2>
       <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">
-        We're building the infrastructure layer that UK property has never had — a single, verified record for every home.
+        HomeTruth is building The Truth Platform, the UK's definitive, trusted source for property information.<br>
+        We are not merely a data company; we are the architects of a new, transparent ecosystem.
       </p>
     </div>
     <div class="vision-pillars">
@@ -920,63 +1155,28 @@
 <!-- ═══════════ THE DUAL FLYWHEEL ═══════════ -->
 <section class="flywheel-section" id="flywheel" data-section="3">
   <div class="section-inner">
-    <div class="animate-in" style="text-align: center; margin-bottom: 48px;">
+    <div class="flywheel-header animate-in">
       <div class="section-label purple">The Solution</div>
-      <h2 class="section-title"><span class="thin">The</span> Dual Flywheel</h2>
-      <p class="section-subtitle" style="margin: 0 auto;">Two interlocking engines — a Property Flywheel that builds the data, and a People Flywheel that builds the trust.</p>
+      <h2 class="section-title">Our Solution: The Dual-Flywheel</h2>
+      <p class="section-subtitle">We help solve the data problem with a symbiotic model built on Properties and People.</p>
     </div>
-    <div class="flywheel-container animate-in delay-1">
-      <div class="flywheel-visual">
-        <div class="flywheel-ring outer"></div>
-        <div class="flywheel-ring mid"></div>
-        <div class="flywheel-ring inner"></div>
-        <div class="flywheel-center">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <rect x="0" y="0" width="40" height="40" rx="8" fill="#E8651A"/>
-            <rect x="14" y="14" width="40" height="40" rx="8" fill="#00B4D8" opacity="0.9"/>
-            <rect x="7" y="24" width="32" height="32" rx="8" fill="#8B3FA0" opacity="0.7"/>
-          </svg>
-          <p>Trust Engine</p>
-        </div>
-        <div class="flywheel-node n1">Open Data Ingestion</div>
-        <div class="flywheel-node n2">AI Analysis</div>
-        <div class="flywheel-node n3">Blockchain Verification</div>
-        <div class="flywheel-node n4">Property Record</div>
-        <div class="flywheel-node n5">Community Trust</div>
-        <div class="flywheel-node n6">Trust Score</div>
+    <div class="dual-flywheel-layout animate-in delay-1">
+      <div class="fly-col">
+        <h3>The Property Flywheel</h3>
+        <p>We achieve breadth by onboarding millions of properties into our Property Ledger.</p>
+        <p>The foundational skeleton is a comprehensive database covering all ~28 million UK residential addresses.</p>
+        <p>Created by aggregating public and licensed datasets (Ordnance Survey, Land Registry, EPC Register, Verisk), it provides a baseline profile for every property from day one.</p>
       </div>
-      <div class="flywheel-details">
-        <h3>Two Flywheels, One Platform</h3>
-        <div class="flywheel-detail">
-          <div class="marker">
-            <div class="b1" style="background: rgba(0, 180, 216, 0.3);"></div>
-            <div class="b2" style="background: rgba(0, 180, 216, 0.15);"></div>
-          </div>
-          <div>
-            <h4>Property Flywheel</h4>
-            <p>Ingests open data, applies AI analysis, creates verified property records on blockchain. Each home gets a living, immutable ledger of its true condition and history.</p>
-          </div>
-        </div>
-        <div class="flywheel-detail">
-          <div class="marker">
-            <div class="b1" style="background: rgba(232, 101, 26, 0.3);"></div>
-            <div class="b2" style="background: rgba(232, 101, 26, 0.15);"></div>
-          </div>
-          <div>
-            <h4>People Flywheel</h4>
-            <p>Homeowners contribute data, verify records, and build community trust scores. The more people participate, the richer and more valuable the platform becomes.</p>
-          </div>
-        </div>
-        <div class="flywheel-detail">
-          <div class="marker">
-            <div class="b1" style="background: rgba(139, 63, 160, 0.3);"></div>
-            <div class="b2" style="background: rgba(139, 63, 160, 0.15);"></div>
-          </div>
-          <div>
-            <h4>Compounding Value</h4>
-            <p>More data creates better intelligence. Better intelligence attracts more users. More users generate more data. The flywheel accelerates continuously.</p>
-          </div>
-        </div>
+
+      <div class="dual-wheel-wrap">
+        <img src="images/dual-flywheel-diagram.svg" alt="Dual flywheel diagram connecting property data and homeowner participation" class="flywheel-graphic">
+      </div>
+
+      <div class="fly-col">
+        <h3>The People Flywheel</h3>
+        <p>We achieve depth by giving homeowners a free HomeTruth AI advisor that enriches records with consented, ground-truth data.</p>
+        <p>The advisor provides accurate and trustworthy information, proactive maintenance guidance, secure digital vault capabilities, and impartial insight.</p>
+        <p>As homeowners engage, they co-create the deeper truth about their homes.</p>
       </div>
     </div>
   </div>
@@ -988,7 +1188,7 @@
     <div class="animate-in">
       <div class="section-label cyan">How It Works</div>
       <h2 class="section-title"><span class="thin">AI, Ledger &</span> Blockchain Together</h2>
-      <p class="section-subtitle" style="margin: 0 auto;">Three technology pillars create one unified truth layer for every property in the UK.</p>
+      <p class="section-subtitle" style="margin: 0 auto;">Our platform will integrate three powerful technologies to create the ultimate property trust layer.</p>
     </div>
     <div class="tech-stack">
       <div class="tech-card animate-in delay-1">
@@ -996,8 +1196,8 @@
           <div class="b1" style="background: rgba(0, 180, 216, 0.25);"></div>
           <div class="b2" style="background: rgba(0, 180, 216, 0.1);"></div>
         </div>
-        <h3>AI Property Advisor</h3>
-        <p>Your personal property AI — answering questions, spotting risks, recommending maintenance, and giving genuine insight into your home's condition and value.</p>
+        <h3>Secure Property Ledger on AWS</h3>
+        <p>Our core platform runs on AWS, securely storing structured property data, events, and trust scores. Personal and property data are separated to support GDPR compliance by design.</p>
         <div class="tech-tags">
           <span class="tech-tag">Natural Language</span>
           <span class="tech-tag">Risk Analysis</span>
@@ -1009,8 +1209,8 @@
           <div class="b1" style="background: rgba(232, 101, 26, 0.25);"></div>
           <div class="b2" style="background: rgba(232, 101, 26, 0.1);"></div>
         </div>
-        <h3>Property Ledger</h3>
-        <p>A comprehensive, verified record for every home — pulling from Land Registry, EPC data, planning records, flood risk, and dozens of other open data sources.</p>
+        <h3>AI Advisor: Intelligence &amp; UX</h3>
+        <p>A chat-based advisor helps homeowners update records naturally, flags inconsistencies, requests evidence, and continuously improves each property's trust score.</p>
         <div class="tech-tags">
           <span class="tech-tag">Land Registry</span>
           <span class="tech-tag">EPC Data</span>
@@ -1023,8 +1223,8 @@
           <div class="b1" style="background: rgba(139, 63, 160, 0.25);"></div>
           <div class="b2" style="background: rgba(139, 63, 160, 0.1);"></div>
         </div>
-        <h3>Blockchain Verification</h3>
-        <p>Every record is timestamped and verified on-chain. Immutable proof that this data existed at this time — creating genuine trust in property information.</p>
+        <h3>Blockchain Independent Notary</h3>
+        <p>Important verified events are batched and hashed to create a tamper-evident timestamp, so lenders, insurers, and buyers can verify records remain unchanged.</p>
         <div class="tech-tags">
           <span class="tech-tag">Immutable</span>
           <span class="tech-tag">Timestamped</span>
@@ -1053,21 +1253,49 @@
         </div>
       </div>
       <div class="climate-content animate-in delay-1">
-        <h3>Green Homes Infrastructure</h3>
-        <div class="section-title" style="font-size: 34px;"><span class="thin">The Climate Play</span> That Nobody Sees Coming</div>
-        <p>The UK Government's target: all homes EPC C by 2035. But right now, nobody knows the true energy performance of the housing stock. HomeTruth does.</p>
-        <p>We're building the data infrastructure that makes the green transition possible — property-level climate intelligence that helps homeowners, insurers, and policymakers act.</p>
+        <h3>Market Timing</h3>
+        <div class="section-title" style="font-size: 34px;">We're Building the Trust Layer for UK Property</div>
+        <p>Every property will soon have its "Home Truth". Every home transaction will need verified data. Every landlord will need compliance tracking. Every buyer will want trusted guidance.</p>
+        <p>This is a large, immediate market need with clear demand signals across transactions, home investment, and net-zero upgrades.</p>
         <div class="climate-stat-row">
           <div class="climate-stat">
-            <div class="val">19M</div>
-            <div class="desc">Homes below EPC C</div>
+            <div class="val">2.62M</div>
+            <div class="desc">Annual Transactions</div>
           </div>
           <div class="climate-stat">
-            <div class="val">2035</div>
-            <div class="desc">Government target</div>
+            <div class="val">£50B</div>
+            <div class="desc">Home Improvement Spend</div>
+          </div>
+          <div class="climate-stat">
+            <div class="val">29M</div>
+            <div class="desc">Homes Need Net Zero Upgrades</div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROVE MODEL (SLIDE 9) ═══════════ -->
+<section class="problem">
+  <div class="section-inner">
+    <div class="animate-in" style="text-align: center;">
+      <div class="section-label purple">Execution Focus</div>
+      <h2 class="section-title">We will prove the model in a single region, then scale.</h2>
+    </div>
+    <div class="insight-grid">
+      <article class="insight-card animate-in delay-1">
+        <h3>Prove B2C Engagement</h3>
+        <p>Validate that our AI Advisor is a compelling hook that drives user adoption and, crucially, data verification.</p>
+      </article>
+      <article class="insight-card animate-in delay-2">
+        <h3>Create an Enhanced Dataset</h3>
+        <p>Build a small but perfect, high-density, verified dataset for our pilot city (e.g. Brighton).</p>
+      </article>
+      <article class="insight-card animate-in delay-3">
+        <h3>Secure an Anchor Partner</h3>
+        <p>Use this unique asset to secure our first B2B pilot, proving the commercial model with minimal risk.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1077,49 +1305,71 @@
   <div class="section-inner">
     <div class="animate-in" style="text-align: center;">
       <div class="section-label orange">Go-To-Market</div>
-      <h2 class="section-title"><span class="thin">Three Phases to</span> Market Dominance</h2>
-      <p class="section-subtitle" style="margin: 0 auto;">From Brighton pilot to national infrastructure — a disciplined path to scale.</p>
+      <h2 class="section-title">Go-to-Market: Three-Phase Execution</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">A clear, milestone-driven path from pilot to national scale.</p>
     </div>
     <div class="gtm-phases">
       <div class="gtm-card animate-in delay-1">
         <div class="phase-num">01</div>
-        <span class="phase-badge p1">Phase 1 — Now</span>
-        <h3>Brighton Pilot</h3>
-        <div class="gtm-subtitle">Prove the Model</div>
+        <span class="phase-badge p1">Phase 1 — Months 1-12</span>
+        <h3>Validate the Model</h3>
+        <div class="gtm-subtitle">Brighton Pilot</div>
         <ul>
-          <li>Launch with Brighton & Hove focus</li>
-          <li>Build initial property ledgers</li>
-          <li>Homeowner early-adopter community</li>
-          <li>First B2B data partnerships</li>
-          <li>Validate AI advisor product-market fit</li>
+          <li>Launch the AI Advisor and populate the Ledger for Brighton.</li>
+          <li>Achieve target user density and data verification KPIs.</li>
+          <li>Prove the B2C hook works.</li>
         </ul>
       </div>
       <div class="gtm-card animate-in delay-2">
         <div class="phase-num">02</div>
-        <span class="phase-badge p2">Phase 2 — Scale</span>
-        <h3>Regional Expansion</h3>
-        <div class="gtm-subtitle">Grow the Flywheel</div>
+        <span class="phase-badge p2">Phase 2 — Months 13-24</span>
+        <h3>Secure Anchor Partner &amp; Expand</h3>
+        <div class="gtm-subtitle">Commercial Validation</div>
         <ul>
-          <li>Expand to major UK cities</li>
-          <li>Scale B2B DaaS revenue</li>
-          <li>Insurance & lender partnerships</li>
-          <li>API platform for third parties</li>
-          <li>Green homes data products</li>
+          <li>Use the Brighton case study to sign the first paid B2B pilot.</li>
+          <li>Prove the commercial model with minimal partner risk.</li>
+          <li>Expand the playbook to London.</li>
         </ul>
       </div>
       <div class="gtm-card animate-in delay-3">
         <div class="phase-num">03</div>
-        <span class="phase-badge p3">Phase 3 — Dominate</span>
-        <h3>National Infrastructure</h3>
-        <div class="gtm-subtitle">Become the Standard</div>
+        <span class="phase-badge p3">Phase 3 — Month 25+</span>
+        <h3>Scale Nationally</h3>
+        <div class="gtm-subtitle">City-by-City Rollout</div>
         <ul>
-          <li>28M UK homes on platform</li>
-          <li>Industry-standard property record</li>
-          <li>Government & regulatory adoption</li>
-          <li>International expansion planning</li>
-          <li>Full property lifecycle platform</li>
+          <li>Use proven model and B2B revenue to raise Series A.</li>
+          <li>Fund a city-by-city national rollout.</li>
+          <li>Become the de-facto data infrastructure for UK property.</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ WHERE WE ARE TODAY (SLIDE 11) ═══════════ -->
+<section class="vision">
+  <div class="section-inner">
+    <div class="animate-in" style="text-align: center;">
+      <div class="section-label cyan">Progress</div>
+      <h2 class="section-title">Where We Are Today</h2>
+    </div>
+    <div class="status-grid">
+      <article class="status-item animate-in delay-1">
+        <h3>Product</h3>
+        <p>MVP AI Advisor live at hometruth.io. Identified key data sources and schema for the Property Ledger.</p>
+      </article>
+      <article class="status-item animate-in delay-2">
+        <h3>Users</h3>
+        <p>Early users have tried the AI Advisor. Planning to seed initial property profiles in Brighton.</p>
+      </article>
+      <article class="status-item animate-in delay-3">
+        <h3>Partners</h3>
+        <p>Targeting pilot opportunities with insurtech providers, insurers, and brokers. Establishing pilot agreement templates.</p>
+      </article>
+      <article class="status-item animate-in delay-4">
+        <h3>Tech &amp; Data</h3>
+        <p>Cloud-native stack with Node.js, React, and PostgreSQL. Next step is ingesting Land Registry, EPC Register, and Ordnance Survey data.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1130,28 +1380,26 @@
     <div class="animate-in" style="text-align: center;">
       <div class="section-label cyan">Revenue Model</div>
       <h2 class="section-title"><span class="thin">Scalable</span> B2B Data-as-a-Service</h2>
-      <p class="section-subtitle" style="margin: 0 auto;">
-        Free for homeowners. Monetised through institutional data products. Multiple compounding revenue streams.
-      </p>
+      <p class="section-subtitle" style="margin: 0 auto;">During phase one, we do not charge consumers. We build traction first, then charge businesses for access to validated data.</p>
     </div>
     <div class="revenue-timeline">
       <div class="revenue-phase animate-in delay-1">
         <span class="phase-badge p1">Year 1–2</span>
         <h3>Foundation</h3>
         <div class="revenue-target">£750K ARR</div>
-        <p>B2B data subscriptions, initial insurance partnerships, API access fees. Prove revenue model with Brighton data.</p>
+        <p>Focus on B2B pilot revenue from 1-2 partners in beachhead markets. Target: ~£750k ARR.</p>
       </div>
       <div class="revenue-phase animate-in delay-2">
         <span class="phase-badge p2">Year 3–4</span>
         <h3>Growth</h3>
         <div class="revenue-target">£6M ARR</div>
-        <p>Scaled DaaS across UK cities, multiple insurer contracts, lender integrations, premium homeowner tiers.</p>
+        <p>Roll out to 3-5 major UK metro areas with repeatable B2B sales. Target: ~£6M ARR.</p>
       </div>
       <div class="revenue-phase animate-in delay-3">
         <span class="phase-badge p3">Year 5+</span>
         <h3>Scale</h3>
         <div class="revenue-target">£15M+ ARR</div>
-        <p>National infrastructure play, government contracts, full property lifecycle monetisation, international.</p>
+        <p>With national coverage underway and a proven model, scale toward market-standard infrastructure. Target: £15M+ ARR.</p>
       </div>
     </div>
     <div class="revenue-streams animate-in delay-2">
@@ -1160,33 +1408,97 @@
           <div class="b1" style="background: rgba(0, 180, 216, 0.2);"></div>
           <div class="b2" style="background: rgba(0, 180, 216, 0.08);"></div>
         </div>
-        <h4>DaaS</h4>
-        <p>Property data subscriptions for insurers & lenders</p>
+        <h4>B2B Partnerships</h4>
+        <p>Mortgage brokers and insurers buy bulk subscriptions and data access.</p>
       </div>
       <div class="stream">
         <div class="stream-block">
           <div class="b1" style="background: rgba(232, 101, 26, 0.2);"></div>
           <div class="b2" style="background: rgba(232, 101, 26, 0.08);"></div>
         </div>
-        <h4>API Access</h4>
-        <p>Third-party integrations & developer platform</p>
+        <h4>Direct Subscriptions</h4>
+        <p>Homeowners and landlords pay monthly for premium support.</p>
       </div>
       <div class="stream">
         <div class="stream-block">
           <div class="b1" style="background: rgba(139, 63, 160, 0.2);"></div>
           <div class="b2" style="background: rgba(139, 63, 160, 0.08);"></div>
         </div>
-        <h4>Premium</h4>
-        <p>Homeowner pro features & enhanced reports</p>
+        <h4>Marketplace Commissions</h4>
+        <p>Contractors and financial products pay for qualified leads.</p>
       </div>
       <div class="stream">
         <div class="stream-block">
           <div class="b1" style="background: rgba(67, 176, 42, 0.2);"></div>
           <div class="b2" style="background: rgba(67, 176, 42, 0.08);"></div>
         </div>
-        <h4>Climate Data</h4>
-        <p>Green homes intelligence & retrofit planning</p>
+        <h4>Verification Reports</h4>
+        <p>Professionals pay per-property reports and verification outputs.</p>
       </div>
+      <div class="stream">
+        <div class="stream-block">
+          <div class="b1" style="background: rgba(0, 180, 216, 0.2);"></div>
+          <div class="b2" style="background: rgba(0, 180, 216, 0.08);"></div>
+        </div>
+        <h4>Data Intelligence</h4>
+        <p>Anonymised insights licensed to institutions.</p>
+      </div>
+    </div>
+    <p class="section-subtitle animate-in delay-3" style="margin: 28px auto 0; text-align: center;">Result: multiple revenue per user, negative CAC through partnerships.</p>
+  </div>
+</section>
+
+<!-- ═══════════ KPIS (SLIDE 15) ═══════════ -->
+<section class="problem">
+  <div class="section-inner">
+    <div class="animate-in" style="text-align: center;">
+      <div class="section-label cyan">Plan & KPIs</div>
+      <h2 class="section-title">12-18 Month Plan &amp; KPIs</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">North star metric: homeowner-verified properties in active partner regions.</p>
+    </div>
+    <div class="status-grid">
+      <article class="status-item animate-in delay-1">
+        <h3>12-Month Targets (Pilot Phase)</h3>
+        <ul class="kpi-list">
+          <li>Brighton pilot live with AI Advisor + Property Ledger.</li>
+          <li>10,000+ properties in Brighton with basic profiles.</li>
+          <li>2,000+ homeowner-verified properties.</li>
+          <li>1-3 paid pilots with insurers/brokers.</li>
+          <li>Initial ARR in low six figures.</li>
+        </ul>
+      </article>
+      <article class="status-item animate-in delay-2">
+        <h3>18-Month Targets</h3>
+        <ul class="kpi-list">
+          <li>Expand to a second region (e.g. London borough).</li>
+          <li>25,000+ homeowner-verified properties across pilots.</li>
+          <li>3-5 B2B partners on paid pilots or early contracts.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ DATA PRIVACY TRUST (SLIDE 16) ═══════════ -->
+<section class="vision">
+  <div class="section-inner">
+    <div class="animate-in" style="text-align: center;">
+      <div class="section-label green">Trust By Design</div>
+      <h2 class="section-title">Data, Privacy &amp; Trust by Design</h2>
+    </div>
+    <div class="insight-grid">
+      <article class="insight-card animate-in delay-1">
+        <h3>Architected for GDPR</h3>
+        <p>Separate Property Ledger (property facts) from Identity Layer (personal data). Minimal personal data with clear homeowner consent and control.</p>
+      </article>
+      <article class="insight-card animate-in delay-2">
+        <h3>Clear Legal Position</h3>
+        <p>Legitimate interests for improving the Property Ledger. Contract or consent for advisor experience and marketing. Partners remain regulated decision-makers.</p>
+      </article>
+      <article class="insight-card animate-in delay-3">
+        <h3>Transparency for Users</h3>
+        <p>Simple human privacy policy with self-service access and deletion. Designed to address GDPR and liability questions from the ground up.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -1200,10 +1512,10 @@
     </div>
     <div class="team-grid">
       <div class="team-card animate-in delay-1">
-        <div class="team-avatar">MM</div>
+        <div class="team-avatar"><img src="images/team/monty-munford-from-pdf.jpg" alt="Monty Munford"></div>
         <h3>Monty Munford</h3>
         <div class="role">Co-Founder & CEO</div>
-        <p>Global tech journalist, speaker, and startup advisor. Deep networks across media, venture capital, and the property industry. Has written for The Telegraph, Forbes, and spoken at events worldwide.</p>
+        <p>Monty advises fast-growing companies in blockchain and AI on growth and visibility. In the past decade his consultancy has helped more than 40 companies raise money or exit for a total of $1.4 billion. He writes regularly for BBC and The Economist, and has been a tech columnist for Forbes and The Telegraph.</p>
         <div class="team-logos">
           <span class="team-logo-tag">Forbes</span>
           <span class="team-logo-tag">Telegraph</span>
@@ -1211,14 +1523,25 @@
         </div>
       </div>
       <div class="team-card animate-in delay-2">
-        <div class="team-avatar">JR</div>
+        <div class="team-avatar"><img src="images/team/jason-ryan-from-pdf.jpg" alt="Jason Ryan"></div>
         <h3>Jason Ryan</h3>
         <div class="role">Co-Founder & CTO</div>
-        <p>Innovation strategist and AI specialist. Background in digital transformation, emerging technology, and product development. Experienced in building AI-powered platforms from zero to scale.</p>
+        <p>With a PhD from Imperial College, Jason pivoted from academia to digital innovation and transformation, leading programmes for MoMA New York, Universal Pictures, Barclays, Nike and The Economist, including a pioneering owners platform for Porsche AG. As co-founder and CSO of Brilliant Noise, he helped build over £50M in turnover.</p>
         <div class="team-logos">
           <span class="team-logo-tag">AI / ML</span>
           <span class="team-logo-tag">Product</span>
           <span class="team-logo-tag">Innovation</span>
+        </div>
+      </div>
+      <div class="team-card animate-in delay-3">
+        <div class="team-avatar"><img src="images/team/hamza-alsarhan.jpg" alt="Dr Hamza Alsarhan"></div>
+        <h3>Dr Hamza Alsarhan</h3>
+        <div class="role">Advisor</div>
+        <p>D.Eng. technology leader with expertise in applied machine learning and cybersecurity. Hamza brings technical depth in AI systems, data infrastructure, and product-scale execution.</p>
+        <div class="team-logos">
+          <span class="team-logo-tag">Applied AI</span>
+          <span class="team-logo-tag">Cybersecurity</span>
+          <span class="team-logo-tag">Data Platforms</span>
         </div>
       </div>
     </div>
@@ -1235,29 +1558,54 @@
     </div>
     <div class="ask-allocation animate-in delay-1">
       <div class="alloc-item">
-        <div class="pct">40%</div>
-        <div class="alloc-label">Product & Engineering</div>
+        <div class="pct">60%</div>
+        <div class="alloc-label">Team</div>
       </div>
       <div class="alloc-item">
         <div class="pct">25%</div>
-        <div class="alloc-label">Data & AI</div>
-      </div>
-      <div class="alloc-item">
-        <div class="pct">20%</div>
-        <div class="alloc-label">Growth & Marketing</div>
+        <div class="alloc-label">Product & Data</div>
       </div>
       <div class="alloc-item">
         <div class="pct">15%</div>
-        <div class="alloc-label">Operations</div>
+        <div class="alloc-label">Operations & Compliance</div>
       </div>
     </div>
     <div class="animate-in delay-2" style="margin-bottom: 48px;">
       <p style="font-size: 16px; color: var(--ht-mid-grey); max-width: 560px; margin: 0 auto 32px; line-height: 1.7; font-weight: 300;">
-        12 months of runway to prove the model in Brighton, close first B2B contracts, and position for Seed round.
+        Milestones this round unlocks: 10,000+ homeowner-verified properties in Brighton, 1-3 paid insurance and broker pilots, and initial ARR of £100,000-£250,000 with a repeatable expansion playbook.
       </p>
       <a href="mailto:jason@hometruth.io" class="ask-cta">
         Let's Talk →
       </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ STYX TESTIMONIAL ═══════════ -->
+<section class="vision">
+  <div class="section-inner">
+    <div class="animate-in" style="text-align: center;">
+      <div class="section-label purple">STYX Testimonial</div>
+      <h2 class="section-title">“HomeTruth is tackling one of the most complex and opaque experiences in modern life.”</h2>
+      <p class="section-subtitle" style="margin: 0 auto;">
+        “Banks, insurers and homeowners alike are operating in the dark, making decisions on incomplete or outdated data that ultimately leads to mispricing, inefficiency and frustration across the sector.
+        We’re proud to help such an accomplished founding team kick off their venture through the STYX Living Lab.”
+      </p>
+      <p class="section-subtitle" style="margin: 8px auto 20px; color: #2b4661;">
+        Florian Fischer, Co-Founder & Chairman, STYX
+      </p>
+      <p class="section-subtitle" style="margin: 0 auto;">Shareholder equity: STYX 10%</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CLOSING CTA (SLIDE 19) ═══════════ -->
+<section class="ask-section">
+  <div class="section-inner cta-final">
+    <div class="animate-in">
+      <div class="section-label green">Try HomeTruth</div>
+      <h2 class="section-title">Try HomeTruth at hometruth.io</h2>
+      <a href="https://hometruth.io" class="ask-cta" target="_blank" rel="noopener noreferrer">Open hometruth.io →</a>
     </div>
   </div>
 </section>
