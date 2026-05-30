@@ -2,7 +2,7 @@
 
 > This file is maintained by Claude. Update it whenever a material change occurs.
 > Organised into four memory types: Procedural, Semantic, Episodic, Working.
-> Last updated: 2026-03-29
+> Last updated: 2026-05-30
 
 ---
 
@@ -120,6 +120,7 @@ Jason also runs **Brilliant Noise** (AI strategy consultancy) — HomeTruth is s
 | 2026-03-19 | Created content/channel plan (`docs/strategy/hometruth-content-channel-plan.html`). 40+ individual content pieces mapped to pillars with titles, formats, channels, CTAs. Channels: Blog (HomeTruths), X (@HomeTruthUK), LinkedIn (Monty/Jason), Email newsletter, PR. AI drafting workflow defined. Sample week view. Monty's PR calendar. 7 recurring series formats defined. |
 | 2026-03-29 | **Folder consolidation audit.** Audited 6 HT-related folders in ~/Documents. Rescued 8 documentation files (PRD, wireframes, user journeys, specs) and 20 persona files from `home_truth_bot` → saved to `docs/product/legacy-bot/` and `docs/personas/`. Deleted 3 redundant folders: `home_truth_bot` (broken git remote, pointed at bmw_season_start), `HomeTruth2` (Bolt.new prototype, no git), `HT Landing Page` (superseded, no git). Renamed `hometruth__x` → `hometruth-chrome`. Updated CLAUDE.md folder map and related repos section. |
 | 2026-03-29 | **Cowork folder deep clean.** Deduplicated PDFs (removed 8 exact copies including 5 style guide dupes). Then audited all remaining files for staleness — deleted 26 superseded/redundant files total (20 old investor decks including a 182MB HT.pdf, 5 proposition/spec PDFs now in markdown, 1 duplicate deck mislabelled as Document.pdf). Organised remaining 13 files into subfolders: investor-decks/ (5), strategy-and-product/ (5), brand-and-style/ (1), admin/ (2), plus hometruth-story.html at root. Cowork folder went from ~48 loose files to 13 organised files. |
+| 2026-05-30 | Added product governance for homeowner-first prevention and partner access before HT-316 implementation. Decision: prevention tasks are useful homeowner actions first; insurer/cohort value is downstream and governed. Insurers are partner/cohort actors by default, not `PropertyPerson` records on each home, and receive no default access to documents, facts, tasks, personal profiles or individual status without explicit consent. |
 
 ### Key decisions made
 - **2026-03-19** — Moved brand assets to `brand/`, investor materials to `investor/`, all GDrive docs into `docs/` with strategy/product/research/segments/press subfolders
@@ -127,6 +128,7 @@ Jason also runs **Brilliant Noise** (AI strategy consultancy) — HomeTruth is s
 - **2026-03-19** — Content strategy: creative platform is "Every home has a truth. Know yours." Consumer messaging must lead; investor content should be repositioned behind a dedicated section. The AI advisor IS the content product — all content funnels toward it.
 - **2026-03-29** — Consolidated HT project folders from 6 down to 3. `hometruth` (this repo) is the single source of truth for strategy/docs. `hometruth-chrome` for the extension. `hometruth-styleguide` for the brand site. All others deleted after rescuing unique content.
 - **2026-03-29** — Cowork folder (COWORK/HomeTruth) reorganised: only current/essential PDFs kept, grouped into investor-decks/, strategy-and-product/, brand-and-style/, admin/. The hometruth repo docs/ folder is the canonical source for all strategy, product, and research content in markdown.
+- **2026-05-30** — HT-316 prevention tasks are homeowner-first and pull-led in V1. The insurer pilot path uses partner/cohort/consent models; direct property, document, fact, task or report access requires explicit future consent and separate implementation.
 
 ### Key competitive intelligence
 - **Home Owner's Passport** — direct competitor, already piloting Land Registry title deed access for estate agents (March 2026). One of only three regulated digital property logbook apps. Focused on conveyancing/transactions, not ongoing homeownership.
@@ -144,6 +146,12 @@ Jason also runs **Brilliant Noise** (AI strategy consultancy) — HomeTruth is s
 - 🔄 $500K seed round in progress (for customer acquisition post-MVP)
 - 🔄 Pilot partnerships with leading insurers ongoing
 - 🔄 Website live at hometruth.io
+
+### Current status (as of 2026-05-30)
+- Backend, frontend, tickets and docs are being worked as separate repos under `/Users/jasonryan/Developer/HomeTruth`.
+- Ticket source of truth is `HomeTruth-tickets`.
+- HT-316 is next: build homeowner-first prevention tasks and reminders for the 500-person partner cohort path.
+- Product governance for HT-316 lives at `docs/product/homeowner-first-prevention-and-partner-access.md`.
 
 ### Open questions / things to resolve
 - Exact MVP launch date not confirmed in documents

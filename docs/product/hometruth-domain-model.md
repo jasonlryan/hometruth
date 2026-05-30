@@ -1,8 +1,8 @@
 # HomeTruth Domain Model
 
-**Status:** Draft for review  
-**Owner:** Product / engineering  
-**Last updated:** 2026-05-25  
+**Status:** Draft for review
+**Owner:** Product / engineering
+**Last updated:** 2026-05-30
 **Tracking ticket:** HT-307
 
 ## Purpose
@@ -32,6 +32,7 @@ HomeTruth's product value is created where these two systems meet:
 - `hometruth DOCS/CLAUDE.md` — HomeTruth as the definitive digital record / service log for every home.
 - `hometruth DOCS/docs/product/hometruth-product-spec.md` — property information management, maintenance records, compliance, service providers, financial tools, marketplace.
 - `hometruth DOCS/docs/product/hometruth-tech-docs.md` and `hometruth-project-knowledge.md` — implementation and MVP context.
+- `hometruth DOCS/docs/product/homeowner-first-prevention-and-partner-access.md` — homeowner-first prevention tasks and governed partner/insurer access.
 - `hometruth DOCS/docs/strategy/hometruth-refined-proposition.md` — document vault, AI property knowledgebase, maintenance scheduling, smart home, compliance.
 - `hometruth DOCS/docs/personas/` — first-time buyer, homeowner, landlord, investor, second-home owner, home improvement enthusiast.
 - Current backend models/controllers and live MySQL table list.
@@ -78,6 +79,14 @@ This is why the model must represent both sides:
 9. **Speculative business mechanics stay outside the core.** Blockchain anchoring, verifiable contractor credentials, psychographic matching, and enterprise report pulls are later bounded contexts, not the first database foundation.
 10. **Privacy and consent are first-class.** Personal profiles, documents, and enterprise data products need explicit consent and retention boundaries.
 
+## Partner Access And Prevention Governance
+
+Partner cohorts are not the same thing as property relationships. For the insurer pilot path, the insurer is a partner/cohort actor by default, not a `PropertyPerson` on every participant's home.
+
+Prevention tasks should be homeowner-first: useful actions for the person responsible for the home, generated from property data, documents, facts, evidence and missing baseline information. Partner value should come from consented participation and governed aggregate reporting, not from direct control over a user's property record or tasks.
+
+See `docs/product/homeowner-first-prevention-and-partner-access.md` for the access and copy constraints that govern HT-316 and related partner-cohort work.
+
 ## Bounded Contexts
 
 | Context | Purpose | Stage |
@@ -112,6 +121,7 @@ Key attributes:
 Notes:
 - A person can have many different relationships to different properties.
 - User role is not enough to understand property access. The relationship to a property is modelled by `PropertyPerson`.
+- Insurers should only be modelled here when there is an explicit, property-specific, consented relationship. Partner-cohort participation should use partner/cohort/consent models instead.
 
 ### Property
 
