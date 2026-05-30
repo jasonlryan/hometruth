@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Are You One of the 70%? — HomeTruth</title>
+<style>
+  @font-face{font-family:'GillSans';src:local('Gill Sans'),local('GillSans'),local('Gill Sans MT');font-weight:300;}
+  @font-face{font-family:'GillSans';src:local('Gill Sans'),local('GillSans'),local('Gill Sans MT');font-weight:400;}
+  @font-face{font-family:'GillSans';src:local('Gill Sans Bold'),local('GillSans-Bold'),local('Gill Sans MT Bold');font-weight:700;}
+  :root{--ht-orange:#E8651A;--ht-cyan:#00B4D8;--ht-purple:#8B3FA0;--ht-green:#43B02A;--ht-dark:#0F1620;--ht-bg:#F5F7FB;--grad-h:linear-gradient(90deg,var(--ht-orange),var(--ht-purple),var(--ht-cyan));--font:'GillSans','Gill Sans','Gill Sans MT',-apple-system,'Helvetica Neue',Arial,sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--font);background:var(--ht-bg);color:#1E2D3D;line-height:1.78;}
+  .brand-bar{position:fixed;top:0;left:0;right:0;height:4px;background:var(--grad-h);z-index:100;}
+
+  /* Article header */
+  .article-header{background:var(--ht-dark);color:#fff;padding:100px 48px 64px;position:relative;overflow:hidden;}
+  .article-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(0,180,216,.12) 0%,transparent 60%);}
+  .article-header *{position:relative;}
+  .article-header .meta-bar{display:flex;gap:16px;align-items:center;margin-bottom:24px;flex-wrap:wrap;}
+  .pill{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;padding:5px 12px;border-radius:6px;font-weight:400;}
+  .pill.pillar{background:rgba(0,180,216,.15);color:var(--ht-cyan);}
+  .pill.channel{background:rgba(232,101,26,.15);color:var(--ht-orange);}
+  .pill.audience{background:rgba(139,63,160,.15);color:var(--ht-purple);}
+  .article-header h1{font-size:clamp(32px,4.5vw,52px);font-weight:300;line-height:1.12;max-width:780px;margin-bottom:20px;}
+  .article-header h1 strong{font-weight:400;}
+  .article-header .dek{font-size:20px;color:rgba(255,255,255,.6);max-width:640px;font-weight:300;line-height:1.65;}
+
+  /* Body */
+  article{max-width:720px;margin:0 auto;padding:48px 32px 64px;}
+  article h2{font-size:26px;font-weight:400;margin:40px 0 16px;color:#0E1E32;}
+  article h3{font-size:20px;font-weight:400;margin:32px 0 12px;color:#0E1E32;}
+  article p{font-size:18px;color:#2F4965;margin-bottom:18px;}
+  article ul,article ol{padding-left:24px;margin-bottom:20px;}
+  article li{font-size:17px;color:#2F4965;margin-bottom:10px;line-height:1.7;}
+  article li strong{font-weight:400;color:#0E1E32;}
+
+  /* Hook box */
+  .hook{background:linear-gradient(135deg,rgba(232,101,26,.06),rgba(0,180,216,.06));border-left:4px solid;border-image:var(--grad-h) 1;padding:24px 28px;margin:32px 0;border-radius:0 14px 14px 0;}
+  .hook p{font-size:20px;font-weight:300;color:#0E1E32;margin:0;line-height:1.55;}
+
+  /* Stat callout */
+  .stat-callout{display:flex;gap:24px;margin:32px 0;flex-wrap:wrap;}
+  .stat-box{flex:1;min-width:160px;background:#fff;border:1px solid #DEE6EF;border-radius:14px;padding:24px;text-align:center;box-shadow:0 6px 20px rgba(10,36,68,.05);}
+  .stat-box .num{font-size:42px;font-weight:300;line-height:1;}
+  .stat-box .num.orange{color:var(--ht-orange);}
+  .stat-box .num.cyan{color:var(--ht-cyan);}
+  .stat-box .num.purple{color:var(--ht-purple);}
+  .stat-box .lbl{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#8C8C8C;margin-top:6px;}
+
+  /* CTA */
+  .cta-block{background:var(--ht-dark);border-radius:16px;padding:40px;text-align:center;margin:48px 0 0;}
+  .cta-block h3{font-size:24px;font-weight:300;color:#fff;margin-bottom:8px;}
+  .cta-block p{color:rgba(255,255,255,.55);font-size:16px;margin-bottom:24px;}
+  .cta-btn{display:inline-block;background:var(--ht-orange);color:#fff;padding:14px 36px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:400;letter-spacing:.5px;transition:all .2s;}
+  .cta-btn:hover{background:var(--ht-cyan);transform:translateY(-2px);}
+  .cta-sub{display:block;margin-top:12px;font-size:13px;color:rgba(255,255,255,.35);}
+
+  /* Source line */
+  .sources{margin-top:40px;padding-top:20px;border-top:1px solid #DEE6EF;font-size:13px;color:#8C8C8C;}
+  .sources a{color:var(--ht-cyan);text-decoration:none;}
+
+  footer{text-align:center;padding:40px;font-size:12px;color:#8C8C8C;}
+  footer span{color:var(--ht-cyan);}
+
+  @media(max-width:768px){
+    .article-header{padding:90px 24px 48px;}
+    article{padding:36px 20px 48px;}
+    .stat-callout{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="brand-bar"></div>
+
+<header class="article-header">
+  <div class="meta-bar">
+    <span class="pill pillar">Pillar 2: Protect Your Investment</span>
+    <span class="pill channel">Blog — HomeTruths</span>
+    <span class="pill audience">Homeowners + Investors</span>
+  </div>
+  <h1>Are You One of the <strong>70%?</strong> Why Most UK Homes Are Underinsured</h1>
+  <p class="dek">Only 7% of UK properties are insured accurately. Here's what that means for your home — and the £60 billion industry that's supposed to protect it.</p>
+</header>
+
+<article>
+
+  <div class="hook">
+    <p>If your home burned down tomorrow, your insurance almost certainly wouldn't cover the cost of rebuilding it. That's not scaremongering. That's the data.</p>
+  </div>
+
+  <p>A 2025 analysis of over 43,000 UK properties found that <strong>70% are underinsured</strong>. Not by a little. By enough that, in a total loss, families would face a shortfall of tens of thousands of pounds — sometimes hundreds of thousands — at the worst possible moment.</p>
+
+  <p>Another 23% are overinsured, paying premiums for cover they don't need. Only 7% — seven per cent — have their insurance right.</p>
+
+  <div class="stat-callout">
+    <div class="stat-box"><div class="num orange">70%</div><div class="lbl">Underinsured</div></div>
+    <div class="stat-box"><div class="num purple">23%</div><div class="lbl">Overinsured</div></div>
+    <div class="stat-box"><div class="num cyan">7%</div><div class="lbl">Accurate</div></div>
+  </div>
+
+  <h2>Why is this happening?</h2>
+
+  <p>The root cause is deceptively simple: nobody has the right data.</p>
+
+  <ul>
+    <li><strong>Rebuild cost ≠ market value.</strong> Most homeowners insure for what their house is worth on the market. But buildings insurance should cover the cost to rebuild from scratch — a completely different number that depends on materials, labour rates, and your home's specific construction. Most people guess. Most people guess wrong.</li>
+    <li><strong>Insurers are pricing blind.</strong> Insurers set premiums based on postcode-level data, broad property types, and whatever the homeowner tells them on a form. They rarely have verified information about extensions, renovations, building materials, or the actual condition of the property.</li>
+    <li><strong>Nobody updates.</strong> You renovated the kitchen three years ago. Added a loft conversion. Replaced the roof. Did you tell your insurer? Most people don't. Your policy is still based on the house you moved into, not the house you live in now.</li>
+    <li><strong>The system doesn't incentivise accuracy.</strong> The comparison-site model rewards switching on price, not getting the right cover. The cheapest quote wins. Until it doesn't.</li>
+  </ul>
+
+  <h2>What does underinsurance actually mean?</h2>
+
+  <p>It means that if you claim, your insurer can reduce the payout proportionally. This is called "averaging" and it's in almost every policy.</p>
+
+  <p>Here's how it works: if your home would cost £300,000 to rebuild but you're insured for £200,000, you're covered for two-thirds of the actual cost. Make a £30,000 claim for storm damage, and you might only receive £20,000. You're left to find the other £10,000 yourself.</p>
+
+  <p>For a total loss — fire, flood, subsidence — the gap can be catastrophic.</p>
+
+  <h2>The bigger picture: a £60 billion market flying blind</h2>
+
+  <p>This isn't just a consumer problem. It's a systemic market failure.</p>
+
+  <ul>
+    <li><strong>Insurers pay out £1.22 for every £1 they earn</strong> in premiums on UK home insurance. The industry is losing money because it can't price risk accurately.</li>
+    <li><strong>Premiums rose sharply in 2025-26</strong> — driven by construction cost inflation, extreme weather, and claims volatility. But higher premiums without better data just means everyone pays more for the same inaccuracy.</li>
+    <li><strong>Fraud costs lenders over £1 billion annually</strong> — partly because there's no verified property record to check claims against.</li>
+  </ul>
+
+  <p>The entire system is built on assumptions where there should be facts.</p>
+
+  <h2>What you can do right now</h2>
+
+  <ol>
+    <li><strong>Check your rebuild cost, not your market value.</strong> The Building Cost Information Service (BCIS) provides estimates, or your surveyor can help. If you haven't checked since you bought the house, it's almost certainly wrong.</li>
+    <li><strong>Tell your insurer about changes.</strong> Every extension, renovation, or improvement changes your rebuild cost. Update your policy when you update your home.</li>
+    <li><strong>Keep your documents.</strong> Building regulations certificates, planning permissions, contractor invoices, warranties. If your insurer asks "prove it," you need the paper trail.</li>
+    <li><strong>Don't auto-renew blind.</strong> 87% of people who switched insurers in 2025 did it for price. But the cheapest policy is meaningless if it doesn't cover what you'd actually need.</li>
+  </ol>
+
+  <h2>What needs to change</h2>
+
+  <p>The real fix isn't individual homeowners being more diligent — though that helps. It's better data infrastructure for the entire property market.</p>
+
+  <p>Imagine if every home had a verified, up-to-date record of its construction, condition, maintenance, and improvements. Insurers could price accurately. Homeowners could be confident they're covered. Claims could be faster and fairer. The 70% problem disappears.</p>
+
+  <p>That's what a property intelligence platform looks like. That's what we're building.</p>
+
+  <div class="cta-block">
+    <h3>Not sure if you're covered?</h3>
+    <p>Ask HomeTruth's free AI Advisor about your home insurance — no signup, no sales pitch.</p>
+    <a href="https://hometruth.io" class="cta-btn">Ask HomeTruth AI →</a>
+    <span class="cta-sub">Free. No signup required. No agenda.</span>
+  </div>
+
+  <div class="sources">
+    <p><strong>Sources:</strong>
+      <a href="https://www.rebuildcostassessment.com/post/2025-property-insurance-infographic">RCA UK Property Insurance Data 2025</a> ·
+      <a href="https://hoa.org.uk/news/homeowners-survey-report-2025/">HomeOwners Alliance Survey 2025</a> ·
+      <a href="https://www.nortonib.co.uk/2025/10/06/why-are-home-insurance-premiums-going-up/">Norton Insurance — Premium Rises 2026</a>
+    </p>
+  </div>
+
+</article>
+
+<footer>Home<span>Truth</span> · HomeTruths Blog · March 2026</footer>
+</body>
+</html>

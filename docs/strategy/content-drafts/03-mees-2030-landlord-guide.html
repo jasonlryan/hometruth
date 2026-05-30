@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEES 2030: What Every Landlord Needs to Do Now — HomeTruth</title>
+<style>
+  @font-face{font-family:'GillSans';src:local('Gill Sans'),local('GillSans'),local('Gill Sans MT');font-weight:300;}
+  @font-face{font-family:'GillSans';src:local('Gill Sans'),local('GillSans'),local('Gill Sans MT');font-weight:400;}
+  @font-face{font-family:'GillSans';src:local('Gill Sans Bold'),local('GillSans-Bold'),local('Gill Sans MT Bold');font-weight:700;}
+  :root{--ht-orange:#E8651A;--ht-cyan:#00B4D8;--ht-purple:#8B3FA0;--ht-green:#43B02A;--ht-dark:#0F1620;--ht-bg:#F5F7FB;--grad-h:linear-gradient(90deg,var(--ht-orange),var(--ht-purple),var(--ht-cyan));--font:'GillSans','Gill Sans','Gill Sans MT',-apple-system,'Helvetica Neue',Arial,sans-serif;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--font);background:var(--ht-bg);color:#1E2D3D;line-height:1.78;}
+  .brand-bar{position:fixed;top:0;left:0;right:0;height:4px;background:var(--grad-h);z-index:100;}
+  .article-header{background:var(--ht-dark);color:#fff;padding:100px 48px 64px;position:relative;overflow:hidden;}
+  .article-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(67,176,42,.12) 0%,transparent 60%);}
+  .article-header *{position:relative;}
+  .meta-bar{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
+  .pill{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;padding:5px 12px;border-radius:6px;font-weight:400;}
+  .pill.pillar{background:rgba(67,176,42,.15);color:var(--ht-green);}
+  .pill.channel{background:rgba(232,101,26,.15);color:var(--ht-orange);}
+  .pill.audience{background:rgba(139,63,160,.15);color:var(--ht-purple);}
+  .article-header h1{font-size:clamp(30px,4.5vw,48px);font-weight:300;line-height:1.12;max-width:780px;margin-bottom:20px;}
+  .article-header h1 strong{font-weight:400;}
+  .article-header .dek{font-size:20px;color:rgba(255,255,255,.6);max-width:640px;font-weight:300;line-height:1.65;}
+
+  article{max-width:720px;margin:0 auto;padding:48px 32px 64px;}
+  article h2{font-size:26px;font-weight:400;margin:40px 0 16px;color:#0E1E32;}
+  article p{font-size:18px;color:#2F4965;margin-bottom:18px;}
+  article ul,article ol{padding-left:24px;margin-bottom:20px;}
+  article li{font-size:17px;color:#2F4965;margin-bottom:10px;line-height:1.7;}
+  article li strong{font-weight:400;color:#0E1E32;}
+
+  .hook{background:linear-gradient(135deg,rgba(67,176,42,.06),rgba(0,180,216,.06));border-left:4px solid var(--ht-green);padding:24px 28px;margin:32px 0;border-radius:0 14px 14px 0;}
+  .hook p{font-size:20px;font-weight:300;color:#0E1E32;margin:0;line-height:1.55;}
+
+  /* Timeline */
+  .tl{margin:32px 0;display:grid;gap:16px;}
+  .tl-item{display:grid;grid-template-columns:120px 1fr;gap:20px;background:#fff;border:1px solid #DEE6EF;border-radius:14px;padding:20px 24px;box-shadow:0 4px 16px rgba(10,36,68,.04);}
+  .tl-item .date{font-size:14px;font-weight:400;text-transform:uppercase;letter-spacing:1px;padding-top:3px;}
+  .tl-item .date.now{color:var(--ht-orange);}
+  .tl-item .date.soon{color:var(--ht-purple);}
+  .tl-item .date.deadline{color:#CC2200;}
+  .tl-item h4{font-size:17px;font-weight:400;color:#0E1E32;margin-bottom:4px;}
+  .tl-item p{font-size:15px;color:#3B526D;margin:0;}
+
+  /* Key number callout */
+  .key-num{display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #DEE6EF;border-radius:14px;padding:24px 28px;margin:28px 0;box-shadow:0 4px 16px rgba(10,36,68,.04);}
+  .key-num .big{font-size:48px;font-weight:300;color:var(--ht-orange);line-height:1;flex-shrink:0;}
+  .key-num .txt{font-size:17px;color:#2F4965;}
+  .key-num .txt strong{font-weight:400;color:#0E1E32;}
+
+  .cta-block{background:var(--ht-dark);border-radius:16px;padding:40px;text-align:center;margin:48px 0 0;}
+  .cta-block h3{font-size:24px;font-weight:300;color:#fff;margin-bottom:8px;}
+  .cta-block p{color:rgba(255,255,255,.55);font-size:16px;margin-bottom:24px;}
+  .cta-btn{display:inline-block;background:var(--ht-green);color:#fff;padding:14px 36px;border-radius:10px;text-decoration:none;font-size:16px;font-weight:400;transition:all .2s;}
+  .cta-btn:hover{background:var(--ht-cyan);transform:translateY(-2px);}
+  .cta-sub{display:block;margin-top:12px;font-size:13px;color:rgba(255,255,255,.35);}
+
+  .sources{margin-top:40px;padding-top:20px;border-top:1px solid #DEE6EF;font-size:13px;color:#8C8C8C;}
+  .sources a{color:var(--ht-cyan);text-decoration:none;}
+  footer{text-align:center;padding:40px;font-size:12px;color:#8C8C8C;}
+  footer span{color:var(--ht-cyan);}
+
+  @media(max-width:768px){
+    .article-header{padding:90px 24px 48px;}
+    article{padding:36px 20px 48px;}
+    .tl-item{grid-template-columns:1fr;}
+    .key-num{flex-direction:column;text-align:center;}
+  }
+</style>
+</head>
+<body>
+<div class="brand-bar"></div>
+
+<header class="article-header">
+  <div class="meta-bar">
+    <span class="pill pillar">Pillar 3: Build Real Value</span>
+    <span class="pill channel">Blog — HomeTruths</span>
+    <span class="pill audience">Landlords</span>
+  </div>
+  <h1>MEES 2030: The <strong>£30,000 Fine</strong> Nobody's Talking About</h1>
+  <p class="dek">All private rentals must hit EPC Band C by October 2030. The new fines are real, the new EPC methodology changes everything, and most landlords aren't ready.</p>
+</header>
+
+<article>
+
+  <div class="hook">
+    <p>In January 2026, the government confirmed the deadline. All privately rented homes in England and Wales must reach EPC Band C by 1 October 2030. One date. No split. No more delays. And the fines just went up.</p>
+  </div>
+
+  <h2>What's actually changed</h2>
+
+  <p>After years of consultations, postponements, and proposals that went nowhere, the Warm Homes Plan locked it in. Here's what landlords need to know:</p>
+
+  <ul>
+    <li><strong>Single compliance date: 1 October 2030.</strong> The earlier proposal to split deadlines (2028 for new tenancies, 2030 for existing) was dropped. Every rental needs Band C by the same date.</li>
+    <li><strong>Fines up to £30,000 per property.</strong> A significant increase on the current £5,000 maximum for MEES breaches. This is the government signalling that non-compliance isn't a rounding error any more.</li>
+    <li><strong>Spending cap: £10,000 per property.</strong> If you genuinely can't reach Band C after spending £10,000, you can apply for a cost cap exemption (valid for 10 years). The cap was reduced from the consulted £15,000.</li>
+    <li><strong>PRS Database launching late 2026.</strong> Landlords will be required to register themselves and every property. Councils will cross-reference this with the EPC register automatically. No more flying under the radar.</li>
+  </ul>
+
+  <div class="key-num">
+    <div class="big">£30K</div>
+    <div class="txt"><strong>Maximum fine per property</strong> for non-compliance with the new MEES Band C requirement from October 2030.</div>
+  </div>
+
+  <h2>The EPC methodology is changing too</h2>
+
+  <p>This is the part most landlords are missing. It's not just the target that's changing — it's how EPCs are assessed.</p>
+
+  <ul>
+    <li><strong>HEM-based EPCs launch late 2026</strong> and become compulsory from October 2029. The new methodology is more granular, more evidence-based, and less forgiving of missing documentation.</li>
+    <li><strong>No evidence = worse rating.</strong> Under the new rules, energy efficiency improvements are only reflected if you can provide documentation. Did the loft insulation but can't prove it? It doesn't count.</li>
+    <li><strong>Your current EPC may not survive re-assessment.</strong> A property rated Band C under the old methodology might score differently under HEM. Don't assume you're safe.</li>
+  </ul>
+
+  <p>This is where the document trail becomes critical. Every improvement you've made, every certificate you hold, every contractor receipt — it all matters now in a way it didn't before.</p>
+
+  <h2>The compliance timeline</h2>
+
+  <div class="tl">
+    <div class="tl-item"><div class="date now">Now</div><div><h4>Audit your portfolio</h4><p>Check every property's current EPC rating. Identify which are below Band C. Prioritise the worst performers.</p></div></div>
+    <div class="tl-item"><div class="date now">2026 H2</div><div><h4>New EPC methodology launches</h4><p>HEM-based EPCs roll out. Gather documentation for all improvements made to date. Consider getting new assessments under the old system while you can.</p></div></div>
+    <div class="tl-item"><div class="date soon">2026–27</div><div><h4>PRS Database registration</h4><p>Register yourself and every property. Expect councils to start cross-referencing with EPC data.</p></div></div>
+    <div class="tl-item"><div class="date soon">2027–29</div><div><h4>Upgrade window</h4><p>Commission and complete energy efficiency works. Loft insulation, double glazing, boiler upgrades, smart heating controls. Keep every receipt and certificate.</p></div></div>
+    <div class="tl-item"><div class="date deadline">Oct 2029</div><div><h4>HEM EPCs compulsory</h4><p>All new EPCs must use the new methodology. Properties rated Band C before this date under the old system remain compliant until that EPC expires.</p></div></div>
+    <div class="tl-item"><div class="date deadline">Oct 2030</div><div><h4>MEES Band C deadline</h4><p>All privately rented properties must hold a valid EPC at Band C or above, or a registered exemption. Fines apply from this date.</p></div></div>
+  </div>
+
+  <h2>What smart landlords are doing now</h2>
+
+  <ol>
+    <li><strong>Get ahead of the rush.</strong> There are roughly 4.4 million privately rented homes in England. A significant proportion need upgrading. Contractors, assessors, and materials will get more expensive as the deadline approaches. Act now while costs are lower and availability is better.</li>
+    <li><strong>Document everything.</strong> The new EPC rules reward evidence. Create a digital record of every improvement: what was done, when, by whom, with what materials. Certificates, invoices, photos. This is the difference between Band C and Band D under HEM.</li>
+    <li><strong>Model the costs.</strong> The £10,000 cap means you won't be forced to spend more than that per property. But spending strategically on the right upgrades (insulation first, heating second) can get most properties to Band C for less.</li>
+    <li><strong>Consider the rental yield impact.</strong> Energy-efficient properties command higher rents, attract better tenants, and have lower void periods. The EPC upgrade isn't just a cost — it's an investment in the property's earning potential.</li>
+    <li><strong>Track compliance centrally.</strong> If you manage multiple properties, tracking EPC dates, certificate expiries, gas safety records, and improvement documentation across a portfolio in a spreadsheet is a recipe for missed deadlines.</li>
+  </ol>
+
+  <div class="cta-block">
+    <h3>Managing multiple properties?</h3>
+    <p>HomeTruth tracks every document, every certificate, every EPC deadline — across your entire portfolio.</p>
+    <a href="https://hometruth.io" class="cta-btn">Ask HomeTruth AI About Your Portfolio →</a>
+    <span class="cta-sub">Free AI property advisor. Ask about MEES, EPCs, and compliance.</span>
+  </div>
+
+  <div class="sources">
+    <p><strong>Sources:</strong>
+      <a href="https://www.simplybusiness.co.uk/knowledge/landlord-regulation/new-energy-efficiency-rules-for-rental-properties/">Simply Business — MEES Update 2026</a> ·
+      <a href="https://epcadvisor.co.uk/insights/epc-requirements-landlords-2025-2030">EPC Advisor — Landlord Requirements 2026-2030</a> ·
+      <a href="https://www.pinsentmasons.com/out-law/news/epc-reforms-mees-private-rented-property-confirmed">Pinsent Masons — EPC Reforms Confirmed</a> ·
+      <a href="https://www.cardinus.com/epc-requirements-uk-landlords-underinsurance/">Cardinus — EPC and Underinsurance</a>
+    </p>
+  </div>
+
+</article>
+
+<footer>Home<span>Truth</span> · HomeTruths Blog · March 2026</footer>
+</body>
+</html>

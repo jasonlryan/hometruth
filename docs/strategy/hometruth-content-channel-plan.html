@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HomeTruth — Content &amp; Channel Plan</title>
+<style>
+  @font-face{font-family:'GillSans';src:local('Gill Sans'),local('GillSans'),local('Gill Sans MT');font-weight:300;}
+  @font-face{font-family:'GillSans';src:local('Gill Sans'),local('GillSans'),local('Gill Sans MT');font-weight:400;}
+  @font-face{font-family:'GillSans';src:local('Gill Sans Bold'),local('GillSans-Bold'),local('Gill Sans MT Bold');font-weight:700;}
+  :root{--ht-orange:#E8651A;--ht-orange-light:#F28C4E;--ht-cyan:#00B4D8;--ht-cyan-light:#48D1E8;--ht-purple:#8B3FA0;--ht-green:#43B02A;--ht-dark:#0F1620;--ht-mid-grey:#8C8C8C;--ht-light-grey:#E8ECF1;--ht-bg:#F5F7FB;--grad-h:linear-gradient(90deg,var(--ht-orange),var(--ht-purple),var(--ht-cyan));--grad-brand:linear-gradient(135deg,var(--ht-orange),var(--ht-purple),var(--ht-cyan));--font:'GillSans','Gill Sans','Gill Sans MT',-apple-system,'Helvetica Neue',Arial,sans-serif;--max-w:1080px;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--font);background:var(--ht-bg);color:#1E2D3D;line-height:1.72;font-weight:400;}
+  .brand-bar{position:fixed;top:0;left:0;right:0;height:4px;background:var(--grad-h);z-index:100;}
+
+  /* Cover */
+  .cover{background:var(--ht-dark);color:#fff;padding:110px 48px 72px;text-align:center;position:relative;overflow:hidden;}
+  .cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(0,180,216,.12) 0%,transparent 60%);}
+  .cover *{position:relative;}
+  .cover .wordmark{font-size:28px;font-weight:400;letter-spacing:.5px;margin-bottom:32px;display:inline-block;}
+  .cover .truth{color:var(--ht-cyan);}
+  .cover h1{font-size:clamp(32px,4.5vw,52px);font-weight:300;line-height:1.15;max-width:760px;margin:0 auto 16px;}
+  .cover h1 em{font-style:normal;font-weight:400;background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .cover .sub{font-size:18px;color:rgba(255,255,255,.55);max-width:600px;margin:0 auto 40px;font-weight:300;}
+  .cover .meta{display:flex;gap:24px;justify-content:center;font-size:12px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:2px;flex-wrap:wrap;}
+
+  /* TOC */
+  .toc{background:#fff;border-bottom:1px solid var(--ht-light-grey);padding:36px 48px;}
+  .toc-inner{max-width:var(--max-w);margin:0 auto;}
+  .toc h2{font-size:11px;text-transform:uppercase;letter-spacing:3px;color:var(--ht-mid-grey);margin-bottom:14px;font-weight:400;}
+  .toc ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px 20px;}
+  .toc li a{color:#1E2D3D;text-decoration:none;font-size:14px;padding:4px 0;transition:color .2s;}
+  .toc li a:hover{color:var(--ht-cyan);}
+  .toc li a .n{color:var(--ht-orange);margin-right:4px;}
+
+  /* Main */
+  main{max-width:var(--max-w);margin:0 auto;padding:0 32px;}
+  .section{padding:56px 0;border-bottom:1px solid var(--ht-light-grey);}
+  .section:last-child{border-bottom:none;}
+  .sl{font-size:11px;text-transform:uppercase;letter-spacing:3px;margin-bottom:6px;font-weight:400;}
+  .sl.o{color:var(--ht-orange);}.sl.c{color:var(--ht-cyan);}.sl.p{color:var(--ht-purple);}.sl.g{color:var(--ht-green);}
+  .section h2{font-size:clamp(26px,3.2vw,38px);font-weight:300;line-height:1.15;margin-bottom:20px;color:#0E1E32;}
+  .section h2 strong{font-weight:400;}
+  .section h3{font-size:20px;font-weight:400;margin:28px 0 12px;color:#0E1E32;}
+  p{margin-bottom:14px;font-size:16px;color:#2F4965;}
+  p.lead{font-size:19px;color:#1E2D3D;line-height:1.7;margin-bottom:20px;}
+  blockquote{background:linear-gradient(135deg,rgba(232,101,26,.04),rgba(0,180,216,.04));border-left:4px solid;border-image:var(--grad-brand) 1;padding:20px 24px;margin:20px 0;border-radius:0 12px 12px 0;font-size:18px;font-weight:300;color:#0E1E32;}
+
+  .back-top{display:inline-block;margin-top:28px;font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--ht-mid-grey);text-decoration:none;padding:6px 14px;border:1px solid var(--ht-light-grey);border-radius:8px;transition:all .2s;}
+  .back-top:hover{color:var(--ht-cyan);border-color:var(--ht-cyan);}
+
+  /* Channel badges */
+  .ch{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:1.2px;padding:3px 8px;border-radius:5px;font-weight:400;margin:2px 2px 2px 0;vertical-align:middle;}
+  .ch.blog{background:#E8F9FF;color:#0090B0;}.ch.x{background:#F0F0F0;color:#333;}.ch.li{background:#E8EFFF;color:#0A66C2;}.ch.pr{background:#FFF3EB;color:#B84D10;}.ch.email{background:#F3E8FF;color:#7A2FA0;}.ch.yt{background:#FFE8E8;color:#CC0000;}
+
+  /* Content tables */
+  .content-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px;}
+  .content-table thead{background:#F0F4F8;}
+  .content-table th{text-align:left;padding:10px 14px;font-weight:400;color:#4B5F78;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;border-bottom:2px solid #DEE6EF;}
+  .content-table td{padding:10px 14px;border-bottom:1px solid #EDF1F5;color:#2F4965;vertical-align:top;}
+  .content-table tr:last-child td{border-bottom:none;}
+  .content-table .title{font-weight:400;color:#0E1E32;}
+  .content-table .cta{font-size:13px;color:var(--ht-orange);font-style:italic;}
+  .content-table .format{font-size:12px;color:var(--ht-mid-grey);}
+
+  /* Pillar tag */
+  .ptag{display:inline-block;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;font-weight:400;}
+  .ptag.p1{background:#FFF3EB;color:var(--ht-orange);}
+  .ptag.p2{background:#E8F9FF;color:#0090B0;}
+  .ptag.p3{background:#E8FFE4;color:#2D8C18;}
+  .ptag.p4{background:#F3E8FF;color:var(--ht-purple);}
+
+  /* Cadence cards */
+  .cadence-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin:20px 0;}
+  .cadence-card{background:#fff;border:1px solid #DEE6EF;border-radius:12px;padding:20px;box-shadow:0 4px 16px rgba(10,36,68,.04);}
+  .cadence-card h4{font-size:16px;font-weight:400;margin-bottom:4px;color:#0E1E32;}
+  .cadence-card .freq{font-size:28px;font-weight:300;margin:8px 0 4px;}
+  .cadence-card .freq.o{color:var(--ht-orange);}.cadence-card .freq.c{color:var(--ht-cyan);}.cadence-card .freq.p{color:var(--ht-purple);}.cadence-card .freq.g{color:var(--ht-green);}
+  .cadence-card .unit{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:var(--ht-mid-grey);}
+  .cadence-card p{font-size:14px;margin-top:8px;}
+
+  /* Week view */
+  .week-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:20px 0;}
+  .day{background:#fff;border:1px solid #DEE6EF;border-radius:12px;padding:16px;min-height:180px;}
+  .day h4{font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--ht-mid-grey);margin-bottom:10px;font-weight:400;}
+  .day-item{background:#FAFBFC;border:1px solid #EDF1F5;border-radius:8px;padding:8px 10px;margin-bottom:8px;font-size:13px;color:#2F4965;}
+  .day-item .ch{font-size:9px;margin-bottom:3px;display:block;width:fit-content;}
+
+  /* AI workflow */
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:20px 0;}
+  .flow-step{background:#fff;border:1px solid #DEE6EF;border-radius:12px;padding:20px;text-align:center;position:relative;}
+  .flow-step::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);font-size:20px;color:var(--ht-light-grey);}
+  .flow-step:last-child::after{display:none;}
+  .flow-step .step-num{font-size:32px;font-weight:300;margin-bottom:6px;}
+  .flow-step .step-num.o{color:var(--ht-orange);}.flow-step .step-num.c{color:var(--ht-cyan);}.flow-step .step-num.p{color:var(--ht-purple);}.flow-step .step-num.g{color:var(--ht-green);}
+  .flow-step h4{font-size:14px;font-weight:400;margin-bottom:4px;}
+  .flow-step p{font-size:13px;margin:0;}
+
+  footer{text-align:center;padding:40px;border-top:1px solid var(--ht-light-grey);margin-top:20px;}
+  footer .fb{font-size:18px;font-weight:400;margin-bottom:6px;}
+  footer p{font-size:12px;color:var(--ht-mid-grey);}
+
+  @media(max-width:768px){
+    .cover{padding:100px 24px 56px;}
+    main{padding:0 20px;}
+    .week-grid{grid-template-columns:1fr;}
+    .flow{grid-template-columns:1fr 1fr;}
+    .flow-step::after{display:none;}
+    .cadence-grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="brand-bar"></div>
+
+<header class="cover">
+  <div class="wordmark">Home<span class="truth">Truth</span></div>
+  <h1>Content &amp; Channel Plan: <em>The Execution Playbook</em></h1>
+  <p class="sub">Every piece of content mapped to a pillar, channel, format, title and CTA. Built to be AI-drafted at pace.</p>
+  <div class="meta"><span>Version 1.0</span><span>March 2026</span><span>Companion to Content Strategy v1.0</span></div>
+</header>
+
+<nav class="toc" id="contents">
+  <div class="toc-inner">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#channels"><span class="n">01</span> Channels &amp; Cadence</a></li>
+      <li><a href="#workflow"><span class="n">02</span> AI Drafting Workflow</a></li>
+      <li><a href="#p1"><span class="n">03</span> Pillar 1: Know Your Home</a></li>
+      <li><a href="#p2"><span class="n">04</span> Pillar 2: Protect Your Investment</a></li>
+      <li><a href="#p3"><span class="n">05</span> Pillar 3: Build Real Value</a></li>
+      <li><a href="#p4"><span class="n">06</span> Pillar 4: Property Intelligence Revolution</a></li>
+      <li><a href="#week"><span class="n">07</span> Sample Week</a></li>
+      <li><a href="#monty"><span class="n">08</span> Monty's Network &amp; PR</a></li>
+      <li><a href="#series"><span class="n">09</span> Recurring Series &amp; Formats</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══ 1. CHANNELS & CADENCE ═══ -->
+<div class="section" id="channels">
+  <div class="sl o">Section 01</div>
+  <h2>Channels &amp; <strong>Cadence</strong></h2>
+  <p class="lead">Four active channels, each with a distinct role and rhythm. Quality over quantity — but consistency is non-negotiable.</p>
+
+  <div class="cadence-grid">
+    <div class="cadence-card">
+      <h4><span class="ch blog">Blog</span> HomeTruths</h4>
+      <div class="freq o">2–3</div>
+      <div class="unit">posts per week</div>
+      <p>Long-form SEO content, guides, data pieces. The organic engine. Every post ends with an AI Advisor CTA.</p>
+    </div>
+    <div class="cadence-card">
+      <h4><span class="ch x">X</span> @HomeTruthUK</h4>
+      <div class="freq c">3–4</div>
+      <div class="unit">posts per day</div>
+      <p>Fast-moving, opinionated, data-led. Threads, hot takes on property news, stat drops, poll questions. Build the voice.</p>
+    </div>
+    <div class="cadence-card">
+      <h4><span class="ch li">LinkedIn</span> Monty + Jason</h4>
+      <div class="freq p">3–5</div>
+      <div class="unit">posts per week each</div>
+      <p>Thought leadership, founder stories, market analysis. Monty = public voice, industry. Jason = product, data, AI. Carousel format for data.</p>
+    </div>
+    <div class="cadence-card">
+      <h4><span class="ch email">Email</span> Newsletter</h4>
+      <div class="freq g">1</div>
+      <div class="unit">issue per week</div>
+      <p>"The Home Truth" — weekly digest. One insight, one stat, one blog link, one AI Advisor prompt. Short, sharp, valuable.</p>
+    </div>
+  </div>
+
+  <h3>Channel Roles</h3>
+  <table class="content-table">
+    <thead><tr><th>Channel</th><th>Primary Role</th><th>Audience</th><th>Content DNA</th></tr></thead>
+    <tbody>
+      <tr><td><span class="ch blog">Blog</span></td><td>SEO acquisition + authority</td><td>Homeowners searching Google</td><td>Long-form guides (1,500–2,500 words), data reports, explainers</td></tr>
+      <tr><td><span class="ch x">X</span></td><td>Voice + community + newsjacking</td><td>PropTech, media, engaged homeowners</td><td>Threads, stat drops, polls, hot takes, news commentary</td></tr>
+      <tr><td><span class="ch li">LinkedIn</span></td><td>Investor + partner + thought leadership</td><td>Investors, insurers, PropTech community</td><td>Founder posts, carousels, data stories, opinion pieces</td></tr>
+      <tr><td><span class="ch email">Email</span></td><td>Retention + nurture + conversion</td><td>Signed-up homeowners + warm leads</td><td>Weekly digest: 1 insight, 1 stat, 1 link, 1 CTA</td></tr>
+      <tr><td><span class="ch pr">PR</span></td><td>Credibility + reach</td><td>National media, trade press</td><td>Op-eds, data exclusives, expert commentary, press releases</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══ 2. AI DRAFTING WORKFLOW ═══ -->
+<div class="section" id="workflow">
+  <div class="sl c">Section 02</div>
+  <h2>AI Drafting <strong>Workflow</strong></h2>
+  <p class="lead">Every piece starts as an AI draft, then gets a human pass. Speed without sacrificing voice.</p>
+
+  <div class="flow">
+    <div class="flow-step"><div class="step-num o">1</div><h4>Brief</h4><p>Pick title from the plan. Set pillar, audience, channel, CTA, key data points.</p></div>
+    <div class="flow-step"><div class="step-num c">2</div><h4>AI Draft</h4><p>Claude generates first draft using HomeTruth voice guidelines and CLAUDE.md context.</p></div>
+    <div class="flow-step"><div class="step-num p">3</div><h4>Human Edit</h4><p>Jason or Monty review for voice, accuracy, opinion. Add personal angle or anecdote.</p></div>
+    <div class="flow-step"><div class="step-num g">4</div><h4>Publish + Repurpose</h4><p>Publish to primary channel. Spin into 2–3 secondary formats (thread, carousel, email excerpt).</p></div>
+  </div>
+
+  <h3>Repurposing Matrix</h3>
+  <table class="content-table">
+    <thead><tr><th>Primary Format</th><th>Repurpose Into</th></tr></thead>
+    <tbody>
+      <tr><td>Blog post (1,500+ words)</td><td>X thread (5-8 tweets) + LinkedIn carousel + newsletter excerpt + 2-3 standalone X posts</td></tr>
+      <tr><td>LinkedIn founder post</td><td>X post + blog expansion (if it resonates) + newsletter feature</td></tr>
+      <tr><td>Data report / research</td><td>Blog summary + X thread + LinkedIn carousel + PR pitch + email feature</td></tr>
+      <tr><td>X thread (if it goes viral)</td><td>Blog post (expanded) + LinkedIn repost with context + newsletter deep-dive</td></tr>
+      <tr><td>PR op-ed (Monty)</td><td>LinkedIn post + X thread + blog republish + email feature</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══ 3. PILLAR 1: KNOW YOUR HOME ═══ -->
+<div class="section" id="p1">
+  <div class="sl o">Section 03 · Pillar 1</div>
+  <h2>Know Your <strong>Home</strong></h2>
+  <p class="lead">Education and empowerment. The SEO engine that drives organic discovery.</p>
+
+  <table class="content-table">
+    <thead><tr><th>Title</th><th>Format</th><th>Channel</th><th>Audience</th><th>CTA</th></tr></thead>
+    <tbody>
+      <tr><td class="title">The First-Time Buyer's Document Checklist: Everything You Need Before, During and After</td><td class="format">Guide (2,000w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p1">FTB</span></td><td class="cta">"Ask HomeTruth AI what documents you're missing →"</td></tr>
+      <tr><td class="title">EPCs Explained in 5 Minutes: What the Ratings Mean and Why They Matter</td><td class="format">Explainer (1,200w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p1">FTB</span> <span class="ptag p2">Homeowner</span></td><td class="cta">"Check what your EPC rating means for your bills →"</td></tr>
+      <tr><td class="title">What Your Survey Actually Tells You (And What It Doesn't)</td><td class="format">Guide (1,800w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p1">FTB</span></td><td class="cta">"Upload your survey to HomeTruth and ask questions about it →"</td></tr>
+      <tr><td class="title">10 Things You Should Know About Your Home But Probably Don't</td><td class="format">Listicle (1,500w)</td><td><span class="ch blog">Blog</span> <span class="ch x">X thread</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"Take the HomeTruth Home Check →"</td></tr>
+      <tr><td class="title">What's Actually in Your Title Deeds? A Plain-English Guide</td><td class="format">Explainer (1,400w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"Store your deeds securely in HomeTruth →"</td></tr>
+      <tr><td class="title">THREAD: Your car has a logbook. Your home doesn't. Here's why that's insane.</td><td class="format">Thread (8 posts)</td><td><span class="ch x">X</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"We're building one. Try it free → hometruth.io"</td></tr>
+      <tr><td class="title">The Landlord's Compliance Document Tracker: What You Need and When</td><td class="format">Guide + checklist</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p3">Landlord</span></td><td class="cta">"Track all your compliance deadlines in one place →"</td></tr>
+      <tr><td class="title">I bought a house last year. Here's what I wish I'd known.</td><td class="format">Founder post</td><td><span class="ch li">LinkedIn</span></td><td><span class="ptag p1">FTB</span></td><td class="cta">"That's why we built HomeTruth."</td></tr>
+      <tr><td class="title">POLL: How many of your home documents could you find right now?</td><td class="format">Poll + stat</td><td><span class="ch x">X</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"Most people can't. HomeTruth fixes that."</td></tr>
+      <tr><td class="title">"What is an EPC?" gets 12,000 Google searches a month. Here's our answer.</td><td class="format">Founder post</td><td><span class="ch li">LinkedIn</span></td><td><span class="ptag p1">FTB</span> <span class="ptag p4">Investor</span></td><td class="cta">"This is exactly the kind of search our content strategy is built to capture."</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══ 4. PILLAR 2: PROTECT YOUR INVESTMENT ═══ -->
+<div class="section" id="p2">
+  <div class="sl c">Section 04 · Pillar 2</div>
+  <h2>Protect Your <strong>Investment</strong></h2>
+  <p class="lead">The insurance and risk pillar. Dual-purpose: helps homeowners AND proves the market to investors.</p>
+
+  <table class="content-table">
+    <thead><tr><th>Title</th><th>Format</th><th>Channel</th><th>Audience</th><th>CTA</th></tr></thead>
+    <tbody>
+      <tr><td class="title">Are You One of the 70%? Why Most UK Homes Are Underinsured</td><td class="format">Data piece (2,000w)</td><td><span class="ch blog">Blog</span> <span class="ch pr">PR pitch</span></td><td><span class="ptag p2">Homeowner</span> <span class="ptag p4">Investor</span></td><td class="cta">"Ask HomeTruth AI to check your insurance coverage →"</td></tr>
+      <tr><td class="title">Home Insurance: The Complete Guide for New Homeowners</td><td class="format">Cornerstone guide (2,500w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p1">FTB</span></td><td class="cta">"Get personalised insurance guidance from HomeTruth →"</td></tr>
+      <tr><td class="title">The £10K Surprise: Hidden Costs Nobody Warns First-Time Buyers About</td><td class="format">Listicle (1,600w)</td><td><span class="ch blog">Blog</span> <span class="ch x">X thread</span></td><td><span class="ptag p1">FTB</span></td><td class="cta">"Know before you buy. Ask HomeTruth →"</td></tr>
+      <tr><td class="title">THREAD: Only 7% of UK homes are insured accurately. Here's what the data says.</td><td class="format">Thread (6 posts)</td><td><span class="ch x">X</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"This is the data problem HomeTruth is solving."</td></tr>
+      <tr><td class="title">Insurance Renewal Season: Why Auto-Renewing is Costing You Hundreds</td><td class="format">Guide (1,200w)</td><td><span class="ch blog">Blog</span> <span class="ch email">Email</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"Let HomeTruth AI review your policy →"</td></tr>
+      <tr><td class="title">Rebuild Cost vs Market Value: The Confusion That Leaves Millions Underinsured</td><td class="format">Explainer (1,400w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"Find out your actual rebuild cost →"</td></tr>
+      <tr><td class="title">UK home insurers are paying out £1.22 for every £1 they earn. This can't last.</td><td class="format">Founder post</td><td><span class="ch li">LinkedIn</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"The industry needs better data. That's what we're building."</td></tr>
+      <tr><td class="title">The £60B Data Problem in UK Home Insurance</td><td class="format">Research report (3,000w)</td><td><span class="ch blog">Blog</span> <span class="ch li">LinkedIn</span> <span class="ch pr">PR</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"Read the full report → / Let's talk →"</td></tr>
+      <tr><td class="title">Landlord Insurance vs Home Insurance: What You Actually Need</td><td class="format">Comparison (1,400w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p3">Landlord</span></td><td class="cta">"Upload your policies to HomeTruth and we'll spot the gaps →"</td></tr>
+      <tr><td class="title">STAT DROP: 71% of brokers saw more claims reduced due to underinsurance in 2025.</td><td class="format">Single post + graphic</td><td><span class="ch x">X</span> <span class="ch li">LinkedIn</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"This is why property data infrastructure matters."</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══ 5. PILLAR 3: BUILD REAL VALUE ═══ -->
+<div class="section" id="p3">
+  <div class="sl g">Section 05 · Pillar 3</div>
+  <h2>Build Real <strong>Value</strong></h2>
+  <p class="lead">Maintenance, improvements, and the green transition. High return-visit content.</p>
+
+  <table class="content-table">
+    <thead><tr><th>Title</th><th>Format</th><th>Channel</th><th>Audience</th><th>CTA</th></tr></thead>
+    <tbody>
+      <tr><td class="title">Your First Year of Homeownership: A Month-by-Month Maintenance Calendar</td><td class="format">Interactive guide</td><td><span class="ch blog">Blog</span> <span class="ch email">Email</span></td><td><span class="ptag p1">FTB</span></td><td class="cta">"Get personalised reminders from HomeTruth →"</td></tr>
+      <tr><td class="title">EPC Upgrade Guide: What to Do, What It Costs, and What You'll Save</td><td class="format">Guide (2,000w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p2">Homeowner</span> <span class="ptag p3">Landlord</span></td><td class="cta">"Ask HomeTruth what upgrades are worth it for your home →"</td></tr>
+      <tr><td class="title">MEES 2030: What Every Landlord Needs to Do Now (The £30K Fine Nobody's Talking About)</td><td class="format">Guide (2,200w)</td><td><span class="ch blog">Blog</span> <span class="ch x">X thread</span></td><td><span class="ptag p3">Landlord</span></td><td class="cta">"Track your EPC deadlines with HomeTruth →"</td></tr>
+      <tr><td class="title">Which Home Improvements Actually Add Value? (Data, Not Opinions)</td><td class="format">Data piece (1,800w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"Ask HomeTruth AI what your home is worth →"</td></tr>
+      <tr><td class="title">The government just confirmed: all rentals must hit EPC C by 2030. Here's the breakdown.</td><td class="format">Thread (8 posts)</td><td><span class="ch x">X</span></td><td><span class="ptag p3">Landlord</span></td><td class="cta">"We built a tool to track this. Free →"</td></tr>
+      <tr><td class="title">Green Retrofits That Actually Increase Rental Yield</td><td class="format">Guide (1,600w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p3">Landlord</span></td><td class="cta">"Find the best upgrades for your portfolio →"</td></tr>
+      <tr><td class="title">20% of UK emissions come from housing. Here's why verified property data is the missing piece.</td><td class="format">Founder post</td><td><span class="ch li">LinkedIn</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"This is the net-zero angle of HomeTruth."</td></tr>
+      <tr><td class="title">The Net Zero Data Gap: Why Green Finance Needs Verified Property Intelligence</td><td class="format">Research report (2,500w)</td><td><span class="ch blog">Blog</span> <span class="ch li">LinkedIn</span> <span class="ch pr">PR</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"Download the report → / Let's talk →"</td></tr>
+      <tr><td class="title">Home Maintenance That Pays for Itself (The Unsexy Guide to Saving Thousands)</td><td class="format">Listicle (1,400w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"Set up free maintenance reminders →"</td></tr>
+      <tr><td class="title">POLL: When did you last service your boiler?</td><td class="format">Poll + follow-up</td><td><span class="ch x">X</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"HomeTruth remembers so you don't have to."</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══ 6. PILLAR 4: PROPERTY INTELLIGENCE REVOLUTION ═══ -->
+<div class="section" id="p4">
+  <div class="sl p">Section 06 · Pillar 4</div>
+  <h2>The Property Intelligence <strong>Revolution</strong></h2>
+  <p class="lead">Thought leadership for investors, partners, and industry. The "big idea" pillar.</p>
+
+  <table class="content-table">
+    <thead><tr><th>Title</th><th>Format</th><th>Channel</th><th>Audience</th><th>CTA</th></tr></thead>
+    <tbody>
+      <tr><td class="title">The £9 Trillion Trust Deficit: Why UK Property Needs a Data Layer</td><td class="format">Flagship essay (3,000w)</td><td><span class="ch blog">Blog</span> <span class="ch li">LinkedIn</span> <span class="ch pr">PR</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"This is the market HomeTruth is building for. Let's talk →"</td></tr>
+      <tr><td class="title">Why Every Property Will Need a Digital Logbook by 2030</td><td class="format">Opinion (1,500w)</td><td><span class="ch blog">Blog</span> <span class="ch li">LinkedIn</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"We're already building it. Here's where we are →"</td></tr>
+      <tr><td class="title">THREAD: The UK government is signalling mandatory property logbooks. Here's what that means.</td><td class="format">Thread (10 posts)</td><td><span class="ch x">X</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"HomeTruth is building the infrastructure for exactly this."</td></tr>
+      <tr><td class="title">From Paper to Platform: How Property Data Fell a Decade Behind Every Other Industry</td><td class="format">Long-form essay (2,000w)</td><td><span class="ch blog">Blog</span></td><td><span class="ptag p2">Homeowner</span> <span class="ptag p4">Investor</span></td><td class="cta">"The future of property data starts with you. Try HomeTruth →"</td></tr>
+      <tr><td class="title">Why your home doesn't have a service history (and why it should)</td><td class="format">Consumer-facing essay</td><td><span class="ch blog">Blog</span> <span class="ch x">X thread</span></td><td><span class="ptag p2">Homeowner</span></td><td class="cta">"We're building the MOT record for homes →"</td></tr>
+      <tr><td class="title">What verified property data means for underwriting: a primer for insurers</td><td class="format">Industry piece (1,800w)</td><td><span class="ch blog">Blog</span> <span class="ch li">LinkedIn</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"Partner with HomeTruth →"</td></tr>
+      <tr><td class="title">We graduated from STYX. Here's what we learned about building trust in property data.</td><td class="format">Founder story</td><td><span class="ch li">LinkedIn</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"We're raising our seed round. DM me."</td></tr>
+      <tr><td class="title">Home Owner's Passport just got Land Registry access. Here's why that validates our thesis.</td><td class="format">Competitor analysis</td><td><span class="ch li">LinkedIn</span> <span class="ch x">X</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"The market is moving. We're building the deeper layer."</td></tr>
+      <tr><td class="title">STAT DROP: EPCs now depend on the paperwork homeowners can provide. No docs = worse rating.</td><td class="format">Single post + graphic</td><td><span class="ch x">X</span></td><td><span class="ptag p2">Homeowner</span> <span class="ptag p3">Landlord</span></td><td class="cta">"HomeTruth stores every document. Your EPC will thank you."</td></tr>
+      <tr><td class="title">Quarterly Investor Update: Traction, Data, and What's Next</td><td class="format">Newsletter (private)</td><td><span class="ch email">Email</span></td><td><span class="ptag p4">Investor</span></td><td class="cta">"Join our investor mailing list →"</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══ 7. SAMPLE WEEK ═══ -->
+<div class="section" id="week">
+  <div class="sl o">Section 07</div>
+  <h2>Sample <strong>Week</strong></h2>
+  <p class="lead">What a typical content week looks like across all channels. AI-drafted, human-edited.</p>
+
+  <div class="week-grid">
+    <div class="day">
+      <h4>Monday</h4>
+      <div class="day-item"><span class="ch blog">Blog</span>Publish blog post (P1 or P2)</div>
+      <div class="day-item"><span class="ch x">X</span>3 posts: stat drop AM, blog promo PM, industry news comment</div>
+      <div class="day-item"><span class="ch li">LinkedIn</span>Monty founder post (thought leadership)</div>
+    </div>
+    <div class="day">
+      <h4>Tuesday</h4>
+      <div class="day-item"><span class="ch x">X</span>3 posts: poll, thread (repurposed from Mon blog), engagement reply</div>
+      <div class="day-item"><span class="ch li">LinkedIn</span>Jason post (product/data insight)</div>
+      <div class="day-item"><span class="ch email">Email</span>Draft newsletter (send Thursday)</div>
+    </div>
+    <div class="day">
+      <h4>Wednesday</h4>
+      <div class="day-item"><span class="ch blog">Blog</span>Publish blog post (P3 or P4)</div>
+      <div class="day-item"><span class="ch x">X</span>3 posts: hot take on property news, stat graphic, HomeTruth tip</div>
+      <div class="day-item"><span class="ch li">LinkedIn</span>Monty carousel or data visualisation</div>
+    </div>
+    <div class="day">
+      <h4>Thursday</h4>
+      <div class="day-item"><span class="ch email">Email</span>Send "The Home Truth" newsletter</div>
+      <div class="day-item"><span class="ch x">X</span>3 posts: newsletter teaser, engagement thread, poll results</div>
+      <div class="day-item"><span class="ch li">LinkedIn</span>Jason post (AI/product story)</div>
+    </div>
+    <div class="day">
+      <h4>Friday</h4>
+      <div class="day-item"><span class="ch blog">Blog</span>Publish blog (if 3/week) or schedule for Mon</div>
+      <div class="day-item"><span class="ch x">X</span>3 posts: week recap thread, "Home Truth of the Week", community Q</div>
+      <div class="day-item"><span class="ch li">LinkedIn</span>Weekend reflection or lighter tone post</div>
+    </div>
+  </div>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══ 8. MONTY'S NETWORK & PR ═══ -->
+<div class="section" id="monty">
+  <div class="sl p">Section 08</div>
+  <h2>Monty's Network &amp; <strong>PR</strong></h2>
+  <p class="lead">Monty's journalist background and industry contacts are an unfair advantage. Here's how to deploy them systematically.</p>
+
+  <h3>PR Calendar</h3>
+  <table class="content-table">
+    <thead><tr><th>Timing</th><th>Piece</th><th>Target</th><th>Hook</th></tr></thead>
+    <tbody>
+      <tr><td>Month 1</td><td>Op-ed: "The UK's £9 Trillion Data Blind Spot"</td><td>The Telegraph Property, Tech.eu</td><td>£9T market + $4M STYX valuation = credibility hook</td></tr>
+      <tr><td>Month 1</td><td>Data exclusive: "Only 7% of UK homes are insured correctly"</td><td>Insurance Times, PropertyWire</td><td>RCA data + HomeTruth commentary = industry credibility</td></tr>
+      <tr><td>Month 2</td><td>Opinion: "Why every home needs a digital logbook"</td><td>Sifted, TechRound, City AM</td><td>Government digital logbook consultation = timely</td></tr>
+      <tr><td>Month 2</td><td>Expert quote roundup: spring insurance renewal season</td><td>MoneySavingExpert, Which?</td><td>Position Monty as go-to property data expert</td></tr>
+      <tr><td>Month 3</td><td>Brighton pilot case study launch</td><td>The Argus (local), Property Reporter</td><td>Local angle + real data = coverage</td></tr>
+      <tr><td>Month 3</td><td>Research report: "The Net Zero Data Gap"</td><td>BusinessGreen, Energy Monitor</td><td>Green finance + property data = underreported angle</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Monty's Commentator Positioning</h3>
+  <p>Goal: make Monty the journalist-turned-founder that newsrooms call for property data and PropTech commentary. To do this:</p>
+  <table class="content-table">
+    <thead><tr><th>Action</th><th>Frequency</th><th>Details</th></tr></thead>
+    <tbody>
+      <tr><td>Reactive commentary</td><td>As news breaks</td><td>Email 3-4 target journalists with a sharp quote within 2 hours of any major property/insurance/PropTech news</td></tr>
+      <tr><td>Op-ed pitches</td><td>1-2 per month</td><td>Proactive opinion pieces tied to data or regulatory developments</td></tr>
+      <tr><td>Podcast appearances</td><td>1-2 per month</td><td>Target: PropTech podcasts, insurance industry shows, startup shows</td></tr>
+      <tr><td>Conference speaking</td><td>Quarterly</td><td>Target: UK PropTech, Insurance Innovators, London Tech Week</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══ 9. RECURRING SERIES ═══ -->
+<div class="section" id="series">
+  <div class="sl g">Section 09</div>
+  <h2>Recurring Series &amp; <strong>Formats</strong></h2>
+  <p class="lead">Repeatable formats that build brand recognition and reduce creative overhead.</p>
+
+  <table class="content-table">
+    <thead><tr><th>Series Name</th><th>Format</th><th>Channel</th><th>Cadence</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="title">"The Truth About..."</td><td>Blog + X thread</td><td><span class="ch blog">Blog</span> <span class="ch x">X</span></td><td>Weekly</td><td>Each week, debunk a common myth or explain an opaque topic. "The Truth About EPCs", "...Home Insurance Excess", "...Damp Surveys"</td></tr>
+      <tr><td class="title">"Home Truth or Myth?"</td><td>Poll + answer</td><td><span class="ch x">X</span></td><td>3x/week</td><td>Quick-fire polls that test homeowner knowledge. Always educational, always shareable. "Myth: you don't need buildings insurance if you're mortgage-free."</td></tr>
+      <tr><td class="title">"Stat Drop"</td><td>Graphic + post</td><td><span class="ch x">X</span> <span class="ch li">LinkedIn</span></td><td>2x/week</td><td>One compelling data point, beautifully visualised. "70% underinsured", "£10K hidden costs", "Only 7% accurate". Branded template.</td></tr>
+      <tr><td class="title">"The Home Truth" Newsletter</td><td>Email digest</td><td><span class="ch email">Email</span></td><td>Weekly (Thu)</td><td>One insight, one stat, one blog link, one AI Advisor prompt. Under 500 words. Valuable enough to forward.</td></tr>
+      <tr><td class="title">"Why I'm Building HomeTruth"</td><td>Founder post</td><td><span class="ch li">LinkedIn</span></td><td>Fortnightly</td><td>Personal, vulnerable, insight-driven. Monty and Jason alternate. Build the human story behind the data.</td></tr>
+      <tr><td class="title">"Ask HomeTruth"</td><td>Q&A</td><td><span class="ch x">X</span> <span class="ch blog">Blog</span></td><td>Weekly</td><td>Answer a real question submitted by a user or from search data. Show the AI Advisor in action. "Someone asked us: do I need to tell my insurer about a loft conversion?"</td></tr>
+      <tr><td class="title">"The Data Layer"</td><td>LinkedIn carousel</td><td><span class="ch li">LinkedIn</span></td><td>Fortnightly</td><td>Investor-focused data visualisations. Market maps, opportunity sizing, competitive landscape, regulatory timelines. Carousel format (6-10 slides).</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+</main>
+
+<footer>
+  <div class="fb">Home<span style="color:var(--ht-cyan);">Truth</span></div>
+  <p>Content &amp; Channel Plan v1.0 — March 2026 — Companion to Content Strategy v1.0</p>
+</footer>
+
+</body>
+</html>

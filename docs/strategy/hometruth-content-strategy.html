@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HomeTruth — Content Strategy</title>
+<style>
+  @font-face { font-family:'GillSans'; src:local('Gill Sans'),local('GillSans'),local('Gill Sans MT'); font-weight:300; }
+  @font-face { font-family:'GillSans'; src:local('Gill Sans'),local('GillSans'),local('Gill Sans MT'); font-weight:400; }
+  @font-face { font-family:'GillSans'; src:local('Gill Sans Bold'),local('GillSans-Bold'),local('Gill Sans MT Bold'); font-weight:700; }
+
+  :root {
+    --ht-orange:#E8651A; --ht-orange-light:#F28C4E;
+    --ht-cyan:#00B4D8; --ht-cyan-light:#48D1E8;
+    --ht-purple:#8B3FA0; --ht-purple-light:#A966BF;
+    --ht-green:#43B02A;
+    --ht-dark:#0F1620; --ht-black:#1A1A1A;
+    --ht-mid-grey:#8C8C8C; --ht-light-grey:#E8ECF1;
+    --ht-white:#FFFFFF; --ht-bg:#F5F7FB;
+    --grad-brand:linear-gradient(135deg,var(--ht-orange),var(--ht-purple),var(--ht-cyan));
+    --grad-h:linear-gradient(90deg,var(--ht-orange),var(--ht-purple),var(--ht-cyan));
+    --body-font:'GillSans','Gill Sans','Gill Sans MT',-apple-system,'Helvetica Neue',Arial,sans-serif;
+    --max-w:960px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--body-font);background:var(--ht-bg);color:#1E2D3D;line-height:1.72;font-weight:400;}
+
+  /* ── Brand bar ── */
+  .brand-bar{position:fixed;top:0;left:0;right:0;height:4px;background:var(--grad-h);z-index:100;}
+
+  /* ── Header / cover ── */
+  .cover{background:var(--ht-dark);color:var(--ht-white);padding:120px 48px 80px;text-align:center;position:relative;overflow:hidden;}
+  .cover::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(0,180,216,.12) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 80% 80%,rgba(139,63,160,.08) 0%,transparent 50%);}
+  .cover *{position:relative;z-index:1;}
+  .cover-logo{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:40px;}
+  .cover-logo .wordmark{font-size:32px;font-weight:400;letter-spacing:.5px;}
+  .cover-logo .truth{color:var(--ht-cyan);}
+  .cover h1{font-size:clamp(36px,5vw,56px);font-weight:300;line-height:1.15;max-width:720px;margin:0 auto 20px;}
+  .cover h1 em{font-style:normal;font-weight:400;background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .cover .subtitle{font-size:19px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto 48px;font-weight:300;}
+  .cover .meta{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;font-size:13px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px;}
+
+  /* ── TOC ── */
+  .toc{background:var(--ht-white);border-bottom:1px solid var(--ht-light-grey);padding:40px 48px;}
+  .toc-inner{max-width:var(--max-w);margin:0 auto;}
+  .toc h2{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--ht-mid-grey);margin-bottom:16px;font-weight:400;}
+  .toc ol{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px 24px;}
+  .toc li a{color:#1E2D3D;text-decoration:none;font-size:15px;display:block;padding:6px 0;border-bottom:1px solid transparent;transition:all .2s;}
+  .toc li a:hover{color:var(--ht-cyan);border-bottom-color:var(--ht-cyan);}
+  .toc li a .num{color:var(--ht-orange);margin-right:6px;font-weight:400;}
+
+  /* ── Main content ── */
+  main{max-width:var(--max-w);margin:0 auto;padding:0 32px;}
+
+  /* ── Section ── */
+  .section{padding:64px 0;border-bottom:1px solid var(--ht-light-grey);}
+  .section:last-child{border-bottom:none;}
+  .section-label{font-size:11px;text-transform:uppercase;letter-spacing:3px;margin-bottom:8px;font-weight:400;}
+  .section-label.orange{color:var(--ht-orange);}
+  .section-label.cyan{color:var(--ht-cyan);}
+  .section-label.purple{color:var(--ht-purple);}
+  .section-label.green{color:var(--ht-green);}
+  .section h2{font-size:clamp(28px,3.5vw,40px);font-weight:300;line-height:1.15;margin-bottom:24px;color:#0E1E32;}
+  .section h2 strong{font-weight:400;}
+  .section h3{font-size:22px;font-weight:400;margin:32px 0 12px;color:#0E1E32;}
+  .section h4{font-size:17px;font-weight:700;margin:20px 0 8px;color:#0E1E32;}
+
+  p{margin-bottom:16px;font-size:17px;color:#2F4965;}
+  p.lead{font-size:20px;color:#1E2D3D;line-height:1.7;margin-bottom:24px;}
+
+  /* ── Callout / blockquote ── */
+  blockquote{background:linear-gradient(135deg,rgba(232,101,26,.04),rgba(0,180,216,.04));border-left:4px solid;border-image:var(--grad-brand) 1;padding:24px 28px;margin:24px 0;border-radius:0 12px 12px 0;font-size:20px;font-weight:300;color:#0E1E32;line-height:1.6;}
+
+  /* ── Cards ── */
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin:24px 0;}
+  .card{background:var(--ht-white);border:1px solid #DEE6EF;border-radius:14px;padding:28px;box-shadow:0 6px 20px rgba(10,36,68,.05);transition:all .3s;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(10,36,68,.09);}
+  .card::before{content:'';display:block;width:40px;height:3px;border-radius:2px;margin-bottom:16px;}
+  .card.orange::before{background:var(--ht-orange);}
+  .card.cyan::before{background:var(--ht-cyan);}
+  .card.purple::before{background:var(--ht-purple);}
+  .card.green::before{background:var(--ht-green);}
+  .card h4{font-size:18px;font-weight:400;margin:0 0 10px;color:#0E1E32;}
+  .card p{font-size:15px;margin-bottom:0;color:#3B526D;}
+  .card .tag{display:inline-block;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;padding:4px 10px;border-radius:6px;margin-bottom:12px;font-weight:400;}
+  .card .tag.ftb{background:#FFF3EB;color:var(--ht-orange);}
+  .card .tag.ho{background:#E8F9FF;color:var(--ht-cyan);}
+  .card .tag.ll{background:#F3E8FF;color:var(--ht-purple);}
+  .card .tag.inv{background:#E8FFE4;color:var(--ht-green);}
+
+  /* ── Tables ── */
+  table{width:100%;border-collapse:collapse;margin:20px 0;font-size:15px;}
+  thead{background:#F0F4F8;}
+  th{text-align:left;padding:12px 16px;font-weight:400;color:#4B5F78;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;border-bottom:2px solid #DEE6EF;}
+  td{padding:12px 16px;border-bottom:1px solid #EDF1F5;color:#2F4965;vertical-align:top;}
+  tr:last-child td{border-bottom:none;}
+
+  /* ── Pillar hero blocks ── */
+  .pillar-hero{display:grid;grid-template-columns:6px 1fr;gap:20px;padding:28px;background:var(--ht-white);border:1px solid #DEE6EF;border-radius:14px;margin:20px 0;box-shadow:0 6px 20px rgba(10,36,68,.05);}
+  .pillar-hero .bar{border-radius:3px;}
+  .pillar-hero.p1 .bar{background:var(--ht-orange);}
+  .pillar-hero.p2 .bar{background:var(--ht-cyan);}
+  .pillar-hero.p3 .bar{background:var(--ht-green);}
+  .pillar-hero.p4 .bar{background:var(--ht-purple);}
+  .pillar-hero h3{font-size:24px;font-weight:400;margin:0 0 6px;color:#0E1E32;}
+  .pillar-hero .mission{font-size:17px;color:#3B526D;margin:0;}
+
+  /* ── Stat row ── */
+  .stat-row{display:flex;gap:24px;flex-wrap:wrap;margin:24px 0;}
+  .stat-item{flex:1;min-width:140px;text-align:center;padding:20px;background:var(--ht-white);border:1px solid #DEE6EF;border-radius:12px;}
+  .stat-item .number{font-size:36px;font-weight:400;line-height:1;}
+  .stat-item .number.orange{color:var(--ht-orange);}
+  .stat-item .number.cyan{color:var(--ht-cyan);}
+  .stat-item .number.purple{color:var(--ht-purple);}
+  .stat-item .number.green{color:var(--ht-green);}
+  .stat-item .label{font-size:11px;text-transform:uppercase;letter-spacing:1.5px;color:var(--ht-mid-grey);margin-top:6px;}
+
+  /* ── Timeline ── */
+  .timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:24px 0;}
+  .timeline-item{position:relative;padding:24px;background:var(--ht-white);border:1px solid #DEE6EF;border-radius:14px;box-shadow:0 6px 20px rgba(10,36,68,.05);}
+  .timeline-item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;}
+  .timeline-item:nth-child(1)::before{background:var(--ht-orange);}
+  .timeline-item:nth-child(2)::before{background:var(--ht-purple);}
+  .timeline-item:nth-child(3)::before{background:var(--ht-cyan);}
+  .timeline-item h4{font-size:13px;text-transform:uppercase;letter-spacing:2px;margin:0 0 4px;font-weight:400;}
+  .timeline-item h4:nth-child(1){color:var(--ht-orange);}
+  .timeline-item h3{font-size:20px;font-weight:400;margin:0 0 12px;color:#0E1E32;}
+  .timeline-item ul{padding-left:18px;margin:0;}
+  .timeline-item li{font-size:15px;color:#3B526D;margin-bottom:6px;}
+
+  /* ── Key message box ── */
+  .msg-box{background:var(--ht-dark);color:var(--ht-white);border-radius:14px;padding:40px;margin:24px 0;text-align:center;}
+  .msg-box .creative-platform{font-size:clamp(24px,3vw,36px);font-weight:300;line-height:1.3;margin-bottom:8px;}
+  .msg-box .creative-platform em{font-style:normal;font-weight:400;background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .msg-box p{color:rgba(255,255,255,.55);font-size:16px;margin:0;}
+
+  /* ── Footer ── */
+  footer{text-align:center;padding:48px;border-top:1px solid var(--ht-light-grey);margin-top:32px;}
+  footer .footer-brand{font-size:18px;font-weight:400;margin-bottom:8px;}
+  footer .truth{color:var(--ht-cyan);}
+  footer p{font-size:12px;color:var(--ht-mid-grey);}
+
+  /* ── Lists inside sections ── */
+  .section ul,.section ol{padding-left:24px;margin-bottom:16px;}
+  .section li{margin-bottom:6px;font-size:16px;color:#2F4965;}
+
+  /* ── Back to top ── */
+  .back-top{display:inline-block;margin-top:32px;font-size:13px;text-transform:uppercase;letter-spacing:2px;color:var(--ht-mid-grey);text-decoration:none;padding:8px 16px;border:1px solid var(--ht-light-grey);border-radius:8px;transition:all .2s;}
+  .back-top:hover{color:var(--ht-cyan);border-color:var(--ht-cyan);background:rgba(0,180,216,.04);}
+
+  /* ── Responsive ── */
+  @media(max-width:768px){
+    .cover{padding:100px 24px 60px;}
+    main{padding:0 20px;}
+    .toc{padding:32px 24px;}
+    .toc ol{grid-template-columns:1fr;}
+    .timeline{grid-template-columns:1fr;}
+    .card-grid{grid-template-columns:1fr;}
+    .stat-row{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+
+<div class="brand-bar"></div>
+
+<!-- ═══════════ COVER ═══════════ -->
+<header class="cover">
+  <div class="cover-logo">
+    <span class="wordmark">Home<span class="truth">Truth</span></span>
+  </div>
+  <h1>Content Strategy:<br><em>Every Home Has a Truth</em></h1>
+  <p class="subtitle">A launch content strategy for investors and homeowners — pillars, messages, creative platform, and 90-day plan.</p>
+  <div class="meta">
+    <span>Version 1.0</span>
+    <span>March 2026</span>
+    <span>Jason Ryan / Claude</span>
+  </div>
+</header>
+
+<!-- ═══════════ TOC ═══════════ -->
+<nav class="toc" id="contents">
+  <div class="toc-inner">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#problem"><span class="num">01</span> The Strategic Problem</a></li>
+      <li><a href="#audiences"><span class="num">02</span> Audience Analysis</a></li>
+      <li><a href="#platform"><span class="num">03</span> The Creative Platform</a></li>
+      <li><a href="#pillars"><span class="num">04</span> Content Pillars</a></li>
+      <li><a href="#messages"><span class="num">05</span> Key Messages</a></li>
+      <li><a href="#channels"><span class="num">06</span> Channel Strategy</a></li>
+      <li><a href="#90days"><span class="num">07</span> First 90 Days</a></li>
+      <li><a href="#measurement"><span class="num">08</span> Measurement</a></li>
+      <li><a href="#website"><span class="num">09</span> Website Changes</a></li>
+      <li><a href="#summary"><span class="num">10</span> One-Page Summary</a></li>
+    </ol>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══════════ 1. THE STRATEGIC PROBLEM ═══════════ -->
+<div class="section" id="problem">
+  <div class="section-label orange">Section 01</div>
+  <h2>The Strategic <strong>Problem</strong> This Solves</h2>
+
+  <p class="lead">HomeTruth has two audiences with fundamentally different needs — investors and homeowners — and the content strategy needs to serve both simultaneously.</p>
+
+  <p>The public website at <a href="https://hometruth.io" style="color:var(--ht-cyan);">hometruth.io</a> does a strong job of communicating the platform vision, the dual-flywheel model, and the market opportunity. It also hosts the live AI Advisor. But there is currently no ongoing content layer — no blog, no guides, no editorial, no SEO-driven articles — that gives homeowners a reason to discover HomeTruth organically, return regularly, and build trust before they engage with the product.</p>
+
+  <p>Meanwhile, the competitive landscape is moving fast. The UK government is actively exploring mandating digital property logbooks. Home Owner's Passport already has Land Registry integration and is piloting with estate agents. Hometree has 100,000+ customers for home services subscriptions. The window to establish HomeTruth as the definitive voice on property intelligence is open, but it won't stay open.</p>
+
+  <p>This content strategy adds the missing layer: it gives homeowners a reason to engage (feeding the consumer flywheel), it gives investors evidence of traction and market positioning, and it builds an organic acquisition engine that reduces CAC over time.</p>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══════════ 2. AUDIENCE ANALYSIS ═══════════ -->
+<div class="section" id="audiences">
+  <div class="section-label cyan">Section 02</div>
+  <h2>Audience <strong>Analysis</strong></h2>
+
+  <div class="card-grid">
+    <div class="card orange">
+      <span class="tag ftb">Primary B2C</span>
+      <h4>First-Time Buyers</h4>
+      <p><strong>Who:</strong> 25-38, likely renting, saving for a deposit, anxious and overwhelmed by the biggest financial commitment of their lives.</p>
+      <p><strong>What they feel:</strong> Fear of making a mistake. Information overload. Distrust of estate agents. Excitement mixed with dread.</p>
+      <p><strong>Need:</strong> Guidance they can trust from someone not trying to sell them something. Plain-English explainers. Tools that make them feel in control.</p>
+    </div>
+    <div class="card cyan">
+      <span class="tag ho">Primary B2C</span>
+      <h4>Existing Homeowners</h4>
+      <p><strong>Who:</strong> 30-65, already own a home, juggling maintenance, insurance, and improvements with busy lives.</p>
+      <p><strong>What they feel:</strong> Vaguely anxious they're not looking after their biggest asset properly. Frustrated by insurance opacity. Curious what their home is worth now.</p>
+      <p><strong>Need:</strong> Practical help. Reminders and schedules. Clarity on insurance. Confidence their home is maintaining value.</p>
+    </div>
+    <div class="card purple">
+      <span class="tag ll">Secondary B2C</span>
+      <h4>Landlords &amp; Investors</h4>
+      <p><strong>Who:</strong> 35-65, own 1-10+ properties, focused on yield and compliance. From accidental landlords to professional portfolio managers.</p>
+      <p><strong>What they feel:</strong> Stressed by ever-changing regulations. Overwhelmed by compliance across multiple properties.</p>
+      <p><strong>Need:</strong> Compliance tracking. Multi-property document management. Clarity on MEES and EPC obligations.</p>
+    </div>
+    <div class="card green">
+      <span class="tag inv">B2B</span>
+      <h4>Investors &amp; Partners</h4>
+      <p><strong>Who:</strong> Seed-stage investors, insurtechs, insurance executives, mortgage brokers, green finance providers.</p>
+      <p><strong>What they feel:</strong> Looking for data-backed opportunities. Sceptical of another PropTech pitch. Interested in the verified data angle.</p>
+      <p><strong>Need:</strong> Evidence of traction. Market analysis. Clear business model. Proof the team can execute.</p>
+    </div>
+  </div>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══════════ 3. CREATIVE PLATFORM ═══════════ -->
+<div class="section" id="platform">
+  <div class="section-label purple">Section 03</div>
+  <h2>The Creative <strong>Platform</strong></h2>
+
+  <h3>The Underlying Human Truth</h3>
+  <blockquote>"My home is the biggest investment of my life, but I know more about my car than I do about my house."</blockquote>
+
+  <p>This is the tension HomeTruth exists to resolve. Cars have service histories, MOT records, and logbooks. Homes — worth ten times more — have a drawer full of paper and a vague memory of when the boiler was last serviced. The information asymmetry is absurd, and everyone feels it even if they can't articulate it.</p>
+
+  <div class="msg-box">
+    <div class="creative-platform">"Every home has a truth. <em>Know yours.</em>"</div>
+    <p>The idea that unites everything — across all audiences, all channels, all content.</p>
+  </div>
+
+  <p>The word "truth" is the brand's superpower. It implies transparency, trust, data integrity, and honesty — all the things the property market currently lacks. Every piece of content should make the reader feel like they're getting closer to the truth about their home.</p>
+
+  <div class="card-grid">
+    <div class="card orange">
+      <h4>For Homeowners</h4>
+      <p>Your home has a story — its real condition, its true value, its hidden risks, its untapped potential. HomeTruth helps you see it clearly.</p>
+    </div>
+    <div class="card purple">
+      <h4>For Investors</h4>
+      <p>The UK property market runs on bad data. HomeTruth is building the infrastructure to fix that. The truth is the product.</p>
+    </div>
+    <div class="card cyan">
+      <h4>For the Industry</h4>
+      <p>Insurers, lenders, and brokers are making billion-pound decisions on incomplete information. HomeTruth gives them the truth they need.</p>
+    </div>
+  </div>
+
+  <h3>Brand Voice Across Audiences</h3>
+  <table>
+    <thead><tr><th>Audience</th><th>Voice Register</th><th>Think of It As...</th></tr></thead>
+    <tbody>
+      <tr><td>First-time buyers</td><td>Warm, encouraging, jargon-free</td><td>A knowledgeable friend who's been through it</td></tr>
+      <tr><td>Existing homeowners</td><td>Practical, confident, slightly wry</td><td>The smart neighbour who just knows things</td></tr>
+      <tr><td>Landlords</td><td>Professional, efficient, regulation-savvy</td><td>A trusted compliance advisor</td></tr>
+      <tr><td>Investors</td><td>Data-grounded, visionary, commercially sharp</td><td>A founder who's done the homework</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══════════ 4. CONTENT PILLARS ═══════════ -->
+<div class="section" id="pillars">
+  <div class="section-label orange">Section 04</div>
+  <h2>Content <strong>Pillars</strong></h2>
+  <p class="lead">Four pillars. Each serves multiple audiences. Each has a clear editorial mission.</p>
+
+  <!-- Pillar 1 -->
+  <div class="pillar-hero p1">
+    <div class="bar"></div>
+    <div>
+      <h3>Pillar 1: Know Your Home</h3>
+      <p class="mission">Help homeowners understand what they own — its value, its risks, its documents, its true condition.</p>
+    </div>
+  </div>
+  <p>This is the acquisition engine. Every homeowner who searches "what EPC rating do I need" or "how much is my house worth" is a potential user. This pillar turns HomeTruth into a trusted resource before anyone downloads the app.</p>
+  <div class="card-grid">
+    <div class="card orange"><span class="tag ftb">First-time buyers</span><h4>Example Content</h4><p>"The first-time buyer's document checklist" · "What your survey actually tells you" · "EPCs explained in 5 minutes"</p></div>
+    <div class="card cyan"><span class="tag ho">Homeowners</span><h4>Example Content</h4><p>"10 things you should know about your home but probably don't" · "What's in your deeds" · "How to read your home insurance policy"</p></div>
+    <div class="card purple"><span class="tag ll">Landlords</span><h4>Example Content</h4><p>"The landlord's compliance Bible" · "Document management for multi-property portfolios"</p></div>
+  </div>
+  <p><strong>Formats:</strong> Long-form guides, interactive checklists, short explainer videos, infographics, AI advisor demos<br>
+  <strong>Primary channel:</strong> Blog/SEO, YouTube, social media<br>
+  <strong>KPI:</strong> Organic traffic, time on page, email signups</p>
+
+  <!-- Pillar 2 -->
+  <div class="pillar-hero p2">
+    <div class="bar"></div>
+    <div>
+      <h3>Pillar 2: Protect Your Investment</h3>
+      <p class="mission">Demystify home insurance, reduce financial risk, and help homeowners make smarter money decisions about their property.</p>
+    </div>
+  </div>
+  <p>Insurance is HomeTruth's first B2B application. Content that exposes the data gap in insurance builds both consumer awareness and investor confidence. The stat that 70% of UK properties are underinsured is a content goldmine.</p>
+  <div class="card-grid">
+    <div class="card orange"><span class="tag ftb">First-time buyers</span><h4>Example Content</h4><p>"Home insurance: the complete guide for new homeowners" · "What 'buildings insurance' actually covers"</p></div>
+    <div class="card cyan"><span class="tag ho">Homeowners</span><h4>Example Content</h4><p>"Are you one of the 70% who are underinsured?" · "The £10K surprise: hidden costs of buying a home" · "Insurance renewal: why you should never auto-renew"</p></div>
+    <div class="card green"><span class="tag inv">Investors</span><h4>Example Content</h4><p>"The £60B data problem in UK home insurance" · "Why insurers are paying £1.22 for every £1 in premiums"</p></div>
+  </div>
+  <p><strong>Formats:</strong> Data-driven articles, calculators ("Am I underinsured?"), comparison tools, market analysis reports<br>
+  <strong>Primary channel:</strong> Blog/SEO, PR, LinkedIn, email<br>
+  <strong>KPI:</strong> Calculator usage, lead generation, PR pickup, partner interest</p>
+
+  <!-- Pillar 3 -->
+  <div class="pillar-hero p3">
+    <div class="bar"></div>
+    <div>
+      <h3>Pillar 3: Build Real Value</h3>
+      <p class="mission">Show homeowners how to increase their property's value through smart maintenance, improvements, and green upgrades — and show investors the net-zero data opportunity.</p>
+    </div>
+  </div>
+  <p>This pillar ties into the net-zero regulatory tailwind. The UK government's 2050 net-zero target, MEES regulations for landlords, and green mortgage products all create demand for verified property energy data — exactly what HomeTruth provides.</p>
+  <div class="card-grid">
+    <div class="card orange"><span class="tag ftb">First-time buyers</span><h4>Example Content</h4><p>"Which home improvements actually add value?" · "Your first year of homeownership: a maintenance calendar"</p></div>
+    <div class="card purple"><span class="tag ll">Landlords</span><h4>Example Content</h4><p>"MEES 2028: what landlords need to do now" · "Green retrofits that increase rental yield" · "The compliance cost of ignoring EPC ratings"</p></div>
+    <div class="card green"><span class="tag inv">Investors</span><h4>Example Content</h4><p>"Green homes built on truth: the data layer for net-zero" · "Why verified energy data is the next infrastructure play"</p></div>
+  </div>
+  <p><strong>Formats:</strong> Guides, seasonal maintenance calendars, ROI calculators, case studies, net-zero research<br>
+  <strong>Primary channel:</strong> Blog/SEO, Pinterest, YouTube, email newsletter<br>
+  <strong>KPI:</strong> Return visits, document vault signups, content shares</p>
+
+  <!-- Pillar 4 -->
+  <div class="pillar-hero p4">
+    <div class="bar"></div>
+    <div>
+      <h3>Pillar 4: The Property Intelligence Revolution</h3>
+      <p class="mission">Position HomeTruth as a thought leader building the trust layer for UK property. Aimed primarily at investors, partners, and industry.</p>
+    </div>
+  </div>
+  <p>This is the investor-facing pillar. It demonstrates that HomeTruth understands the market deeply, has a defensible thesis, and is building something structurally important — not just another app.</p>
+  <div class="card-grid">
+    <div class="card green"><span class="tag inv">Industry / Investors</span><h4>Example Content</h4><p>"The £9 trillion trust deficit" · "Why every property will need a digital logbook by 2030" · "From paper to platform: the case for a UK property data layer"</p></div>
+    <div class="card cyan"><span class="tag ho">Consumer Crossover</span><h4>Example Content</h4><p>"Why your home doesn't have a service history (and why it should)" · "The car vs house comparison: how property data fell behind"</p></div>
+    <div class="card purple"><span class="tag ll">Partners</span><h4>Example Content</h4><p>"What verified property data means for underwriting" · "The insurtech opportunity in property intelligence"</p></div>
+  </div>
+  <p><strong>Formats:</strong> Long-form essays, research reports, founder posts (LinkedIn), conference talks, press commentary, data visualisations<br>
+  <strong>Primary channel:</strong> LinkedIn, industry press, investor updates, HomeTruth blog<br>
+  <strong>KPI:</strong> LinkedIn engagement, press coverage, investor pipeline, partnership enquiries</p>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══════════ 5. KEY MESSAGES ═══════════ -->
+<div class="section" id="messages">
+  <div class="section-label cyan">Section 05</div>
+  <h2>Key <strong>Messages</strong></h2>
+
+  <h3>Universal Messages</h3>
+  <div class="card-grid">
+    <div class="card orange">
+      <h4>The Anchor</h4>
+      <p>"Your home is your biggest investment. You should know the truth about it."</p>
+    </div>
+    <div class="card cyan">
+      <h4>The Metaphor</h4>
+      <p>"HomeTruth: your home's service log."</p>
+    </div>
+    <div class="card purple">
+      <h4>The CTA</h4>
+      <p>"Free AI property advice. No signup. No agenda."</p>
+    </div>
+  </div>
+
+  <h3>Audience-Specific Messages</h3>
+  <table>
+    <thead><tr><th>Audience</th><th>Primary Message</th><th>Supporting Message</th></tr></thead>
+    <tbody>
+      <tr><td>First-time buyers</td><td>"Buying a home is confusing. It doesn't have to be."</td><td>"Get clear, honest answers to every question — from EPCs to insurance to surveys."</td></tr>
+      <tr><td>Existing homeowners</td><td>"You manage everything digitally. Except your most valuable asset."</td><td>"HomeTruth gives your home a digital record — maintenance, documents, value, all in one place."</td></tr>
+      <tr><td>Landlords</td><td>"Compliance shouldn't be a full-time job."</td><td>"Track every document, every certificate, every deadline — across all your properties."</td></tr>
+      <tr><td>Investors</td><td>"The UK property market runs on bad data. We're fixing that."</td><td>"HomeTruth is building the verified data layer that insurers, lenders, and the net-zero transition all need."</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Proof Points</h3>
+  <div class="stat-row">
+    <div class="stat-item"><div class="number orange">70%</div><div class="label">Properties Underinsured</div></div>
+    <div class="stat-item"><div class="number cyan">£9T</div><div class="label">UK Housing Stock</div></div>
+    <div class="stat-item"><div class="number purple">£60B</div><div class="label">Insurance Market</div></div>
+    <div class="stat-item"><div class="number green">$4M</div><div class="label">Valuation Secured</div></div>
+  </div>
+  <table>
+    <thead><tr><th>Claim</th><th>Evidence</th></tr></thead>
+    <tbody>
+      <tr><td>The market is broken</td><td>70% of UK properties underinsured (RCA 2025). Insurers pay £1.22 for every £1 in premiums.</td></tr>
+      <tr><td>The opportunity is massive</td><td>£9 trillion UK residential housing stock. £60B+ home insurance market. £50B annual home improvement spend.</td></tr>
+      <tr><td>Regulatory tailwinds</td><td>UK government exploring mandatory digital property logbooks (2026). MEES regulations tightening. 2050 net-zero target.</td></tr>
+      <tr><td>HomeTruth has traction</td><td>Graduated STYX accelerator. $4M valuation. MVP live. Pilot partnerships in progress.</td></tr>
+      <tr><td>The team can deliver</td><td>Monty: journalist + advisor to 40+ companies ($1.4B total). Jason: PhD, Nike, Porsche, Barclays. Hamza: D.Eng in AI/ML.</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══════════ 6. CHANNEL STRATEGY ═══════════ -->
+<div class="section" id="channels">
+  <div class="section-label green">Section 06</div>
+  <h2>Channel <strong>Strategy</strong></h2>
+
+  <h3>Owned Channels</h3>
+  <table>
+    <thead><tr><th>Channel</th><th>Purpose</th><th>Frequency</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr><td>HomeTruth blog</td><td>SEO, trust-building, pillar content</td><td>2-3 posts/week at launch</td><td>High</td></tr>
+      <tr><td>AI Advisor</td><td>Product-led content — the content IS the product</td><td>Always-on</td><td>Critical</td></tr>
+      <tr><td>Email newsletter</td><td>Nurture, retain, convert free → Pro</td><td>Weekly</td><td>High</td></tr>
+      <tr><td>Story page</td><td>Brand narrative for investors and curious visitors</td><td>Updated quarterly</td><td>Medium</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Social Channels</h3>
+  <table>
+    <thead><tr><th>Channel</th><th>Audience</th><th>Content Type</th><th>Frequency</th></tr></thead>
+    <tbody>
+      <tr><td>LinkedIn</td><td>Investors, partners, industry</td><td>Thought leadership, founder posts, market analysis</td><td>3-5x/week</td></tr>
+      <tr><td>Instagram</td><td>Homeowners, first-time buyers</td><td>Visual tips, infographics, home truths</td><td>Daily</td></tr>
+      <tr><td>TikTok</td><td>First-time buyers, younger homeowners</td><td>Quick explainers, myth-busting, "did you know" hooks</td><td>3-5x/week</td></tr>
+      <tr><td>X (Twitter)</td><td>Industry, media, PropTech community</td><td>Commentary, thread analysis, news reactions</td><td>Daily</td></tr>
+      <tr><td>YouTube</td><td>All audiences</td><td>Longer guides, AI advisor demos, "truth about" series</td><td>1-2x/week</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Earned Channels</h3>
+  <table>
+    <thead><tr><th>Channel</th><th>Approach</th></tr></thead>
+    <tbody>
+      <tr><td>PR / media</td><td>Monty's journalist network is a massive asset. Regular commentary on property market, insurance, PropTech. Target: Tech.eu, Sifted, PropertyWire, The Telegraph.</td></tr>
+      <tr><td>SEO</td><td>Invest heavily in long-form, helpful content targeting homeowner search intent. The blog should become the first place Google sends people with property questions.</td></tr>
+      <tr><td>Partnerships</td><td>Co-branded content with mortgage brokers, insurance comparison sites, and estate agents.</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══════════ 7. FIRST 90 DAYS ═══════════ -->
+<div class="section" id="90days">
+  <div class="section-label orange">Section 07</div>
+  <h2>Content Priorities: <strong>First 90 Days</strong></h2>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4 style="color:var(--ht-orange);">Month 1</h4>
+      <h3>Foundation</h3>
+      <ul>
+        <li>Launch blog with 8-10 foundational SEO articles across all four pillars</li>
+        <li>Publish "The Property Trust Gap" — flagship data report for investors and press</li>
+        <li>Set up email capture and weekly newsletter</li>
+        <li>Begin Monty's LinkedIn cadence (3x/week)</li>
+        <li>Create the "HomeTruth Home Check" — free interactive tool</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <h4 style="color:var(--ht-purple);">Month 2</h4>
+      <h3>Engine</h3>
+      <ul>
+        <li>Publish 8-10 more SEO articles on highest-volume keywords</li>
+        <li>Launch "The Truth About..." content series</li>
+        <li>First YouTube video: "Why your home doesn't have a service history"</li>
+        <li>Instagram/TikTok launch: "Home Truth or Myth?" series</li>
+        <li>Pitch first opinion piece to national press</li>
+      </ul>
+    </div>
+    <div class="timeline-item">
+      <h4 style="color:var(--ht-cyan);">Month 3</h4>
+      <h3>Acceleration</h3>
+      <ul>
+        <li>Publish Brighton-specific content (local SEO for pilot market)</li>
+        <li>First case study: early AI advisor user stories</li>
+        <li>Launch the insurance calculator ("Are you underinsured?")</li>
+        <li>Second data report: "The Net Zero Data Gap"</li>
+        <li>Begin guest content and partnership co-creation</li>
+      </ul>
+    </div>
+  </div>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══════════ 8. MEASUREMENT ═══════════ -->
+<div class="section" id="measurement">
+  <div class="section-label cyan">Section 08</div>
+  <h2>Measurement <strong>Framework</strong></h2>
+
+  <table>
+    <thead><tr><th>Level</th><th>Metric</th><th>90-Day Target</th></tr></thead>
+    <tbody>
+      <tr><td>Awareness</td><td>Organic traffic to blog</td><td>10,000+ monthly visits</td></tr>
+      <tr><td>Engagement</td><td>AI advisor sessions from content</td><td>2,000+</td></tr>
+      <tr><td>Conversion</td><td>Email signups from content</td><td>1,000+</td></tr>
+      <tr><td>Authority</td><td>Press mentions / LinkedIn engagement</td><td>5+ articles, 50K+ impressions</td></tr>
+      <tr><td>Commercial</td><td>Investor/partner enquiries from content</td><td>10+ qualified</td></tr>
+    </tbody>
+  </table>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══════════ 9. WEBSITE CHANGES ═══════════ -->
+<div class="section" id="website">
+  <div class="section-label purple">Section 09</div>
+  <h2>What the <strong>Website</strong> Needs to Change</h2>
+
+  <p class="lead">The current hometruth.io communicates the vision and hosts the AI Advisor well. To support a full content strategy, it needs five additions:</p>
+
+  <div class="card-grid">
+    <div class="card orange">
+      <h4>1. Consumer Entry Point</h4>
+      <p>A clear homeowner-first landing experience alongside the existing platform narrative. "Every home has a truth. Know yours." with a prominent CTA to try the AI Advisor.</p>
+    </div>
+    <div class="card cyan">
+      <h4>2. Blog / Content Hub</h4>
+      <p>Where all pillar content lives. SEO-optimised, well-categorised, and integrated with the AI advisor.</p>
+    </div>
+    <div class="card purple">
+      <h4>3. Investor Section</h4>
+      <p>The current site content, moved behind a clear "For Investors" link. Don't lose it; reframe it.</p>
+    </div>
+    <div class="card green">
+      <h4>4. Interactive Tools</h4>
+      <p>The "Home Check" quiz, the insurance calculator, the maintenance calendar. These drive engagement and data.</p>
+    </div>
+    <div class="card orange">
+      <h4>5. Social Proof</h4>
+      <p>User stories, testimonials, the STYX endorsement prominently displayed, press logos.</p>
+    </div>
+  </div>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+<!-- ═══════════ 10. ONE-PAGE SUMMARY ═══════════ -->
+<div class="section" id="summary">
+  <div class="section-label green">Section 10</div>
+  <h2>The One-Page <strong>Summary</strong></h2>
+
+  <div class="msg-box">
+    <div class="creative-platform">"Every home has a truth. <em>Know yours.</em>"</div>
+    <p>The creative platform that unites all content across all audiences.</p>
+  </div>
+
+  <h3>Four Pillars</h3>
+  <table>
+    <thead><tr><th>Pillar</th><th>Mission</th><th>Primary Audience</th></tr></thead>
+    <tbody>
+      <tr><td style="color:var(--ht-orange);">Know Your Home</td><td>Educate homeowners about their property</td><td>First-time buyers, homeowners</td></tr>
+      <tr><td style="color:var(--ht-cyan);">Protect Your Investment</td><td>Demystify insurance and financial risk</td><td>Homeowners, landlords</td></tr>
+      <tr><td style="color:var(--ht-green);">Build Real Value</td><td>Smart maintenance, improvements, green upgrades</td><td>All consumer segments</td></tr>
+      <tr><td style="color:var(--ht-purple);">Property Intelligence Revolution</td><td>Thought leadership for industry and investors</td><td>Investors, partners</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Three Things That Make This Strategy Work</h3>
+  <div class="card-grid">
+    <div class="card orange">
+      <h4>The AI Advisor IS the Content Product</h4>
+      <p>Every article, guide, and tool should funnel people toward trying the advisor. Content and product are the same thing.</p>
+    </div>
+    <div class="card cyan">
+      <h4>Dual-Purpose Content</h4>
+      <p>The best pieces serve consumers AND investors simultaneously. "70% of UK homes are underinsured" is a helpful article for homeowners and a market-sizing proof point for investors.</p>
+    </div>
+    <div class="card purple">
+      <h4>Monty Is the Secret Weapon</h4>
+      <p>A co-founder with deep media relationships, a journalist's instinct for story, and a public profile is an unfair advantage. Put him front and centre.</p>
+    </div>
+  </div>
+  <a href="#contents" class="back-top">&#8593; Back to contents</a>
+</div>
+
+</main>
+
+<footer>
+  <div class="footer-brand">Home<span class="truth">Truth</span></div>
+  <p>Content Strategy v1.0 — March 2026 — Confidential</p>
+</footer>
+
+</body>
+</html>
