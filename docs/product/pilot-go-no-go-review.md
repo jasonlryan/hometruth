@@ -1,7 +1,7 @@
 # Pilot Go/No-Go Review
 
 **Status:** Draft decision: no_go
-**Owner:** TBD
+**Owner:** Jason Ryan, interim pilot owner
 **Last updated:** 2026-08-02
 **Related tickets:** HT-318, HT-319, HT-320, HT-322
 
@@ -67,9 +67,9 @@ Required target-environment smoke path:
 
 - HT-318 support runbook accepted: no
 - HT-319 deletion/withdrawal runbook accepted: no
-- Support owner named: no
-- Technical escalation contact named: no
-- Incident owner named: no
+- Support owner named: yes (Jason Ryan, interim)
+- Technical escalation contact named: yes (Jason Ryan, interim)
+- Incident owner named: yes (Jason Ryan, interim)
 - Legal/privacy review completed: no
 - Partner launch copy approved: no
 - Success thresholds approved: no
@@ -84,7 +84,7 @@ Required target-environment smoke path:
 - Property-aware backend retrieval exists and the frontend handoff is implemented, but it still needs target-environment smoke verification.
 - Synchronous document embedding may cause slow uploads at pilot scale.
 - Deletion/withdrawal process is not legally accepted.
-- Support ownership is not assigned.
+- Support mailbox validation and continuity beyond the interim owner are not complete.
 - Target production/staging environment has not been smoke-tested.
 - HT-326 migration is merged but not yet applied or verified in the target environment.
 
@@ -92,7 +92,7 @@ Required target-environment smoke path:
 
 Current decision: `no_go`
 
-Owner/date: TBD
+Owner/date: Jason Ryan / 2026-08-02 (current decision: `no_go`)
 
 Decision rationale: the core platform mechanics are implemented, but operational ownership, privacy/deletion handling and target-environment validation are not complete.
 

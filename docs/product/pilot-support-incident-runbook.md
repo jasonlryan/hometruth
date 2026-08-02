@@ -1,8 +1,8 @@
 # Pilot Support And Incident Runbook
 
-**Status:** Draft, with provisional support route pending mailbox validation
-**Owner:** TBD
-**Last updated:** 2026-05-31
+**Status:** Draft, interim ownership assigned; support route pending mailbox validation
+**Owner:** Jason Ryan, interim pilot owner
+**Last updated:** 2026-08-02
 **Related tickets:** HT-318, HT-322, HT-327
 
 ## Purpose
@@ -13,12 +13,12 @@ It is not launch-ready until the owner fields are completed and accepted.
 
 ## Required Human Inputs
 
-- Pilot support owner: TBD
-- Technical escalation contact: TBD
-- Incident owner: TBD
+- Pilot support owner: Jason Ryan, interim
+- Technical escalation contact: Jason Ryan, interim
+- Incident owner: Jason Ryan, interim
 - Support contact route: `support@hometruth.io` (provisional)
-- Support hours: TBD
-- First-response target: TBD
+- Support hours: Monday to Friday, 09:00-17:00 UK time, interim
+- First-response target: one business day, interim
 
 ## Issue Categories
 

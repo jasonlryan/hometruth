@@ -1,8 +1,8 @@
 # Data Deletion And Consent Withdrawal Runbook
 
-**Status:** Draft, blocked on legal/privacy review
-**Owner:** TBD
-**Last updated:** 2026-05-31
+**Status:** Draft, operational owner assigned; blocked on legal/privacy review
+**Owner:** Jason Ryan, interim privacy operations owner
+**Last updated:** 2026-08-02
 **Related tickets:** HT-319, HT-321, HT-322
 
 ## Purpose
@@ -13,11 +13,12 @@ It is not launch-ready until reviewed by the privacy/legal owner.
 
 ## Required Human Inputs
 
-- Privacy/legal owner: TBD
+- Privacy operations owner: Jason Ryan, interim
+- Legal/privacy reviewer: external adviser or counsel, TBD
 - Request intake route: TBD
 - Identity verification method: TBD
 - Target handling time: TBD
-- Escalation owner: TBD
+- Escalation owner: Jason Ryan, interim
 - Delete versus anonymise policy approval: TBD
 
 ## Consent Scopes

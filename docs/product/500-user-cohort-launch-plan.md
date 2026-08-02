@@ -13,9 +13,9 @@ The product promise must stay homeowner-first. The partner introduces the cohort
 
 ## Current Flight Path
 
-**Current launch status:** `no_go`. The product path and aggregate measurement foundations are merged; launch is now gated by operational ownership, privacy decisions and target-environment proof.
+**Current launch status:** `no_go`. The product path and aggregate measurement foundations are merged; launch is now gated by operational validation, privacy decisions and target-environment proof.
 
-1. **Assign operating ownership**: name the pilot support owner, technical escalation contact, incident owner, support route, hours and first-response target in HT-318.
+1. **Validate the interim operating model**: Jason Ryan is the interim pilot support, technical escalation, incident, privacy operations and go/no-go owner. Complete HT-327 mailbox validation and retain external legal/privacy review.
 2. **Approve withdrawal and deletion operations**: name the privacy/legal owner and agree identity verification, handling time, escalation and delete-versus-anonymise policy in HT-319.
 3. **Prepare the target cohort**: name the environment, deploy migrations, confirm Qdrant/OpenAI, configure the partner/cohort, select invite mode and record consent copy in HT-320.
 4. **Run one full target-environment rehearsal**: validate invite, consent, property, document, tasks, property-aware chat, daily activity/repeat-use reporting and the aggregate admin report.
