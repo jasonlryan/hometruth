@@ -22,6 +22,12 @@ The product promise must stay homeowner-first. The partner introduces the cohort
 5. **Accept the evidence**: product/pilot owner accepts success thresholds; privacy/compliance owner approves the external aggregate report boundary in HT-324.
 6. **Record the launch decision**: the named owner records `go`, `go_with_monitoring` or `no_go`, with monitoring and rollback expectations.
 
+## Subsequent Project Phase
+
+The next product phase is a B2B2C partner-programme foundation, not a collection of one-off insurer features. It is defined in [B2B2C Partner Programme Scope](b2b2c-partner-programme-scope.md) and ticketed as HT-328 through HT-334.
+
+The current pilot launch gates remain active. The B2B2C phase must build on the homeowner-first and aggregate-only boundaries proved by the pilot; it does not replace target-environment, support or legal/privacy readiness work.
+
 Technical foundation already merged:
 
 - property-aware retrieval and frontend handoff
