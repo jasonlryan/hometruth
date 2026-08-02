@@ -22,23 +22,23 @@ Treat the ticket and linked product document as the contract for a workstream. R
 
 ## HT-328 Handoff
 
-HT-328 is a scope and acceptance ticket, not a code ticket. The authoritative product scope is [B2B2C Partner Programme Scope](b2b2c-partner-programme-scope.md).
+HT-328 is the B2B2C partner-programme scope ticket. The authoritative product scope is [B2B2C Partner Programme Scope](b2b2c-partner-programme-scope.md).
 
 Current state:
 
 - the B2B2C scope, shared core, vertical-pack boundary and HT-329 through HT-334 backlog are documented
 - insurer-sponsored prevention and engagement is the proposed first wedge because it reuses the existing partner/cohort/consent pilot foundation
-- the only open HT-328 acceptance criterion is product-owner confirmation of the initial design-partner route
+- the open HT-328 acceptance criterion is product-owner confirmation of the initial design-partner route
 
 For HT-328:
 
 1. Read the scope, HT-314 through HT-317, HT-320, HT-324 and HT-326.
 2. Verify that a proposed change preserves homeowner-first value, aggregate-only default partner reporting and explicit consent for any individual sharing.
 3. Do not invent a committed partner, commercial term, legal approval or data-sharing agreement.
-4. When Jason confirms the first design-partner route, record that decision, update the scope gate and move HT-328 to completed.
-5. HT-328 documentation and ticket updates go directly to main. They do not need a PR.
+4. Classify the actual change, not the ticket number: documentation/ticket-only changes go directly to main; every backend or frontend code change uses the feature-branch PR loop.
+5. Do not declare HT-328 complete because documentation is committed. Its acceptance criteria control its closure.
 
-HT-329 is the first planned code work only after that scope gate is accepted.
+HT-329 is the first planned code work only after the scope gate is accepted.
 
 ## Branch And PR Policy
 
