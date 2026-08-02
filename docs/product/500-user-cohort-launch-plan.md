@@ -79,6 +79,15 @@ Supporting copy:
 You stay in control of your information. HomeTruth uses your property record and uploaded documents to help you. Your partner receives aggregate pilot insight only unless you explicitly consent to individual sharing.
 ```
 
+Provisional support line for approved pilot communications:
+
+```text
+Need help during the pilot? Contact support@hometruth.io.
+```
+
+This line must not be published until the HT-318 mailbox-validation checklist
+has passed.
+
 ## First-Session Journey
 
 Target outcome: the user leaves the first session with a property record, at least one useful evidence source, generated actions and one answered question.

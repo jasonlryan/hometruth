@@ -1,6 +1,6 @@
 # Pilot Support And Incident Runbook
 
-**Status:** Draft, blocked on named owners
+**Status:** Draft, with provisional support route pending mailbox validation
 **Owner:** TBD
 **Last updated:** 2026-05-31
 **Related tickets:** HT-318, HT-322
@@ -16,7 +16,7 @@ It is not launch-ready until the owner fields are completed and accepted.
 - Pilot support owner: TBD
 - Technical escalation contact: TBD
 - Incident owner: TBD
-- Support contact route: TBD
+- Support contact route: `support@hometruth.io` (provisional)
 - Support hours: TBD
 - First-response target: TBD
 
@@ -29,6 +29,24 @@ It is not launch-ready until the owner fields are completed and accepted.
 - Document/task issue: upload failure, document link issue, missing actions, unexpected task.
 - Data deletion/withdrawal: user wants to withdraw consent, delete data or understand privacy rights.
 - Incident: security, privacy, outage, repeated production failure or partner-impacting issue.
+
+## Provisional Support Route
+
+Use `support@hometruth.io` as the single user-facing support address in pilot
+communications. Until permanent owners are assigned, this route is a progress
+mechanism rather than a substitute for ownership.
+
+Before the address is published to the cohort, verify all of the following:
+
+1. Messages sent to `support@hometruth.io` arrive in a monitored inbox.
+2. The inbox can send a reply from the HomeTruth domain.
+3. At least one reachable person or shared on-call group receives new messages.
+4. The temporary service target is recorded as one business-day first response,
+   Monday to Friday, 09:00-17:00 UK time.
+5. A privacy/security message can be escalated to a named temporary contact.
+
+Do not mark the support runbook accepted or publish this address until this
+checklist has been evidenced.
 
 ## Severity Levels
 
@@ -116,4 +134,4 @@ We are investigating a HomeTruth pilot issue and have paused the affected proces
 - Support owner not named.
 - Technical escalation contact not named.
 - Incident owner not named.
-- Support route and response time not approved.
+- `support@hometruth.io` mailbox validation and temporary escalation contact not evidenced.
