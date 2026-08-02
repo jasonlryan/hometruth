@@ -74,6 +74,8 @@ Required target-environment smoke path:
 - Partner launch copy approved: no
 - Success thresholds approved: no
 - Aggregate reporting privacy review completed: no
+- HT-324 technical reporting coverage and local representative-data smoke: yes
+- Repeat-use metric instrumented: no (HT-326)
 
 ## Open Risks
 
@@ -100,6 +102,7 @@ Decision rationale: the core platform mechanics are implemented, but operational
 - Target environment smoke test passes.
 - Partner launch copy and support route are approved.
 - Admin aggregate reporting is reviewed for privacy leakage.
+- HT-326 repeat-use instrumentation is implemented and smoke-tested, or the product/pilot owner explicitly accepts its absence from the success pack.
 - HT-324 accepted or equivalent reporting/privacy sign-off recorded.
 
 ## Conditions To Move To Go

@@ -137,13 +137,16 @@ Drop-off triggers:
 
 Pilot event map:
 
-- Invite-to-signup activation: `invite_viewed`, `signup_completed`.
-- Signup-to-property completion: `signup_completed`, `property_setup_completed`.
-- Consent completion: `consent_recorded`.
-- Documents linked per activated user: `document_linked`.
-- Task generation and action engagement: `tasks_generated`, `task_completed`, `task_dismissed`, `task_not_relevant`.
-- Feedback score: `user_feedback_submitted`.
-- Property-aware assistant usage: authenticated chat event coverage still needs confirmation against the target telemetry/reporting path.
+- Invite-to-signup activation: `metrics.activationRate`, calculated from distinct cohort members with `signup_completed` divided by invited members.
+- Signup-to-property completion: `metrics.propertySetupCompletionRate`, calculated from distinct cohort members with `property_setup_completed` divided by completed signups.
+- Consent completion: `metrics.consentRate`, calculated from distinct cohort members with `consent_recorded` divided by completed signups.
+- Documents linked per activated user: `metrics.documentLinksPerActivatedMember`, calculated from `document_linked` events divided by completed signups.
+- Task generation and action engagement: `metrics.tasksGenerated`, `metrics.taskActionedMembers` and `metrics.taskActionEngagementRate`, using `tasks_generated`, `task_completed`, `task_dismissed` and `task_not_relevant`.
+- Feedback score: `metrics.averageFeedbackRating` from `user_feedback_submitted` rating metadata only.
+- Property-aware assistant usage: `metrics.propertyChatQuestionedMembers` and `metrics.propertyChatUsageRate`, from consent-bound `property_chat_question` events. Chat content is not stored in pilot analytics.
+- Repeat use: not yet instrumented. HT-326 will add an authenticated, day-level session signal before this metric is reported.
+
+The admin response includes `metricCoverage`, which marks each metric as `measured` or `not_instrumented`. It must not substitute a proxy for a metric with no valid source.
 
 ## Partner Aggregate Reporting Pack
 
@@ -163,6 +166,13 @@ The partner-facing pack should include aggregate-only views:
 - support issue categories
 
 The pack must not include names, emails, addresses, document names, raw facts, task descriptions, individual chat content or individual user rows.
+
+Technical report-boundary evidence recorded 2026-08-02:
+
+- The cohort-report response was smoke-tested against a disposable five-member MySQL cohort.
+- The response exposed aggregate counts, rates, drop-off totals and metric coverage only.
+- The smoke asserted that user/member/property IDs, document names, raw fact values, feedback text and chat content were absent.
+- Product/pilot and privacy/compliance approval remain required before this pack is shared externally.
 
 ## Open Decisions
 
