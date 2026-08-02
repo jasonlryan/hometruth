@@ -3,7 +3,7 @@
 **Status:** Draft, with provisional support route pending mailbox validation
 **Owner:** TBD
 **Last updated:** 2026-05-31
-**Related tickets:** HT-318, HT-322
+**Related tickets:** HT-318, HT-322, HT-327
 
 ## Purpose
 
@@ -47,6 +47,10 @@ Before the address is published to the cohort, verify all of the following:
 
 Do not mark the support runbook accepted or publish this address until this
 checklist has been evidenced.
+
+Mailbox provisioning and validation are tracked separately in HT-327. Completing
+HT-327 clears this route-validation checklist only; named support, technical
+escalation and incident owners are still required for launch.
 
 ## Severity Levels
 
