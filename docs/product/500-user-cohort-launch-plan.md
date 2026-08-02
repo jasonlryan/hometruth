@@ -144,7 +144,7 @@ Pilot event map:
 - Task generation and action engagement: `metrics.tasksGenerated`, `metrics.taskActionedMembers` and `metrics.taskActionEngagementRate`, using `tasks_generated`, `task_completed`, `task_dismissed` and `task_not_relevant`.
 - Feedback score: `metrics.averageFeedbackRating` from `user_feedback_submitted` rating metadata only.
 - Property-aware assistant usage: `metrics.propertyChatQuestionedMembers` and `metrics.propertyChatUsageRate`, from consent-bound `property_chat_question` events. Chat content is not stored in pilot analytics.
-- Repeat use: not yet instrumented. HT-326 will add an authenticated, day-level session signal before this metric is reported.
+- Repeat use: `metrics.repeatActiveMembers` and `metrics.repeatUseRate`, calculated from consent-bound `pilot_daily_activity` events on at least two distinct UTC dates. The frontend emits no route, property, document, chat or free-text metadata.
 
 The admin response includes `metricCoverage`, which marks each metric as `measured` or `not_instrumented`. It must not substitute a proxy for a metric with no valid source.
 
@@ -173,6 +173,7 @@ Technical report-boundary evidence recorded 2026-08-02:
 - The response exposed aggregate counts, rates, drop-off totals and metric coverage only.
 - The smoke asserted that user/member/property IDs, document names, raw fact values, feedback text and chat content were absent.
 - Product/pilot and privacy/compliance approval remain required before this pack is shared externally.
+- HT-326 implementation is awaiting code-review completion in backend PR #4 and frontend PR #2.
 
 ## Open Decisions
 
