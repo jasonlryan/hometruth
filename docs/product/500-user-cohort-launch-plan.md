@@ -2,14 +2,32 @@
 
 **Status:** Draft
 **Owner:** Product / pilot owner
-**Last updated:** 2026-05-31
-**Related tickets:** HT-315, HT-316, HT-317, HT-318, HT-319, HT-320, HT-321, HT-322, HT-324
+**Last updated:** 2026-08-02
+**Related tickets:** HT-315, HT-316, HT-317, HT-318, HT-319, HT-320, HT-321, HT-322, HT-324, HT-325, HT-326
 
 ## Purpose
 
 This plan defines how a 500-person partner cohort should be introduced to HomeTruth, what users should do in their first session, how they should see value, and what success should mean before launch starts.
 
 The product promise must stay homeowner-first. The partner introduces the cohort, but the user experience is not an insurer compliance checklist.
+
+## Current Flight Path
+
+**Current launch status:** `no_go`. The product path and aggregate measurement foundations are merged; launch is now gated by operational ownership, privacy decisions and target-environment proof.
+
+1. **Assign operating ownership**: name the pilot support owner, technical escalation contact, incident owner, support route, hours and first-response target in HT-318.
+2. **Approve withdrawal and deletion operations**: name the privacy/legal owner and agree identity verification, handling time, escalation and delete-versus-anonymise policy in HT-319.
+3. **Prepare the target cohort**: name the environment, deploy migrations, confirm Qdrant/OpenAI, configure the partner/cohort, select invite mode and record consent copy in HT-320.
+4. **Run one full target-environment rehearsal**: validate invite, consent, property, document, tasks, property-aware chat, daily activity/repeat-use reporting and the aggregate admin report.
+5. **Accept the evidence**: product/pilot owner accepts success thresholds; privacy/compliance owner approves the external aggregate report boundary in HT-324.
+6. **Record the launch decision**: the named owner records `go`, `go_with_monitoring` or `no_go`, with monitoring and rollback expectations.
+
+Technical foundation already merged:
+
+- property-aware retrieval and frontend handoff
+- aggregate cohort reporting and privacy-bound response contract
+- authenticated, per-UTC-day repeat-use telemetry
+- repeatable knowledge-base document loader; the full corpus import remains an operator decision
 
 ## User Promise
 
@@ -173,7 +191,7 @@ Technical report-boundary evidence recorded 2026-08-02:
 - The response exposed aggregate counts, rates, drop-off totals and metric coverage only.
 - The smoke asserted that user/member/property IDs, document names, raw fact values, feedback text and chat content were absent.
 - Product/pilot and privacy/compliance approval remain required before this pack is shared externally.
-- HT-326 implementation is awaiting code-review completion in backend PR #4 and frontend PR #2.
+- HT-326 backend and frontend implementations are merged. Its remaining evidence is target-environment migration and repeat-use smoke, not code review.
 
 ## Open Decisions
 

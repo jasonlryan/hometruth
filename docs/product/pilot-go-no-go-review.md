@@ -2,7 +2,7 @@
 
 **Status:** Draft decision: no_go
 **Owner:** TBD
-**Last updated:** 2026-05-31
+**Last updated:** 2026-08-02
 **Related tickets:** HT-318, HT-319, HT-320, HT-322
 
 ## Purpose
@@ -75,7 +75,8 @@ Required target-environment smoke path:
 - Success thresholds approved: no
 - Aggregate reporting privacy review completed: no
 - HT-324 technical reporting coverage and local representative-data smoke: yes
-- Repeat-use metric technically instrumented: awaiting HT-326 backend/frontend PR merge
+- Repeat-use metric merged and locally smoke-tested: yes
+- Repeat-use target-environment migration and smoke: no
 
 ## Open Risks
 
@@ -85,6 +86,7 @@ Required target-environment smoke path:
 - Deletion/withdrawal process is not legally accepted.
 - Support ownership is not assigned.
 - Target production/staging environment has not been smoke-tested.
+- HT-326 migration is merged but not yet applied or verified in the target environment.
 
 ## Decision
 
@@ -102,7 +104,7 @@ Decision rationale: the core platform mechanics are implemented, but operational
 - Target environment smoke test passes.
 - Partner launch copy and support route are approved.
 - Admin aggregate reporting is reviewed for privacy leakage.
-- HT-326 backend and frontend PRs are merged, and its target-environment repeat-use smoke passes.
+- HT-326 target-environment migration and repeat-use smoke pass.
 - HT-324 accepted or equivalent reporting/privacy sign-off recorded.
 
 ## Conditions To Move To Go
