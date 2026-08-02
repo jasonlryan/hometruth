@@ -5,6 +5,8 @@
 **Last updated:** 2026-08-02
 **Related tickets:** HT-328, HT-329, HT-330, HT-331, HT-332, HT-333, HT-334
 
+**Delivery process:** [HomeTruth Agent Delivery Playbook](agent-delivery-playbook.md)
+
 ## Objective
 
 Make HomeTruth a repeatable B2B2C programme sold to property-adjacent organisations. Partners sponsor a useful homeowner experience; homeowners retain control of their records, documents and choices; partners receive only approved, privacy-protected programme evidence.
