@@ -22,23 +22,24 @@ Treat the ticket and linked product document as the contract for a workstream. R
 
 ## HT-328 Handoff
 
-HT-328 is the B2B2C partner-programme scope ticket. The authoritative product scope is [B2B2C Partner Programme Scope](b2b2c-partner-programme-scope.md).
+HT-328 is the active functional B2B partnership foundation. The authoritative product scope is [B2B2C Partner Programme Scope](b2b2c-partner-programme-scope.md).
 
 Current state:
 
 - the B2B2C scope, shared core, vertical-pack boundary and HT-329 through HT-334 backlog are documented
-- insurer-sponsored prevention and engagement is the proposed first wedge because it reuses the existing partner/cohort/consent pilot foundation
-- the open HT-328 acceptance criterion is product-owner confirmation of the initial design-partner route
+- an insurer is the reference pack because it reuses the existing partner/cohort/consent pilot foundation
+- mortgage providers, home developers and other B2B clients must use the shared core rather than bespoke forks
+- HT-328 remains open until its functional workstreams are implemented and merged
 
 For HT-328:
 
-1. Read the scope, HT-314 through HT-317, HT-320, HT-324 and HT-326.
-2. Verify that a proposed change preserves homeowner-first value, aggregate-only default partner reporting and explicit consent for any individual sharing.
-3. Do not invent a committed partner, commercial term, legal approval or data-sharing agreement.
-4. Classify the actual change, not the ticket number: documentation/ticket-only changes go directly to main; every backend or frontend code change uses the feature-branch PR loop.
-5. Do not declare HT-328 complete because documentation is committed. Its acceptance criteria control its closure.
+1. Read the scope, HT-328 and its active workstream tickets before changing code.
+2. Start the next uncompleted functional workstream on a ticket-named feature branch and use the complete PR review/fix loop.
+3. Preserve homeowner-first value, aggregate-only default partner reporting and explicit consent for any individual sharing.
+4. Do not build insurer-only architecture or defer mortgage-provider, home-developer and other B2B compatibility to a later rewrite.
+5. Documentation/ticket-only changes go directly to main; every backend or frontend change uses the feature-branch PR loop.
 
-HT-329 is the first planned code work only after the scope gate is accepted.
+HT-329 is the first planned code workstream.
 
 ## Branch And PR Policy
 

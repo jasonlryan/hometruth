@@ -1,6 +1,6 @@
 # B2B2C Partner Programme Scope
 
-**Status:** Draft, proposed next project phase
+**Status:** Active functional project phase
 **Owner:** Jason Ryan
 **Last updated:** 2026-08-02
 **Related tickets:** HT-328, HT-329, HT-330, HT-331, HT-332, HT-333, HT-334
@@ -23,7 +23,7 @@ Initial target segments:
 - mortgage providers: completion-to-remortgage homeowner support and property-document continuity
 - new-build companies: handover packs, warranties, snagging and early-ownership guidance
 
-Initial commercial wedge: insurer-sponsored homeowner prevention and engagement. It reuses the existing pilot foundation and should validate the common programme model before a mortgage-provider or new-build pack is built.
+An insurer is the first reference pack because it reuses the existing pilot foundation. The product is a reusable B2B partnership core: mortgage providers, home developers and other B2B clients must be supported through configuration or vertical packs, not bespoke forks.
 
 ## Partner And Homeowner Value
 
@@ -64,11 +64,11 @@ Commercial agreement -> programme configuration -> approved branded invitation -
 
 ## Delivery Plan
 
-### Phase 0: Define The Repeatable Offer
+### Phase 0: Build The Shared B2B Partnership Core
 
-HT-328 establishes the B2B2C proposition, personas, jobs, story map, commercial assumptions, common data contract and priority order. It chooses insurer as the first implementation wedge and states the evidence required to move to other segments.
+HT-328 is the functional B2B partnership foundation. It delivers the shared programme lifecycle, partner-aware onboarding, governed access and aggregate programme evidence through HT-329 through HT-334.
 
-Exit: the scope is accepted and the Phase 1 tickets are sequenced against an insurer design partner or a clearly defined internal pilot.
+Do not wait for a named partner to begin the generic core. A future client must not require a rewrite of the partner, consent, reporting or access model.
 
 ### Phase 1: B2B Pilot Kit
 
