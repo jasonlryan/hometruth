@@ -9,6 +9,8 @@
 
 **Acquisition contract:** [Partner Acquisition And Consent Contract](partner-acquisition-consent-contract.md)
 
+**Access contract:** [Partner Access And Audit Contract](partner-access-audit-contract.md)
+
 ## Objective
 
 Make HomeTruth a repeatable B2B2C programme sold to property-adjacent organisations. Partners sponsor a useful homeowner experience; homeowners retain control of their records, documents and choices; partners receive only approved, privacy-protected programme evidence.
