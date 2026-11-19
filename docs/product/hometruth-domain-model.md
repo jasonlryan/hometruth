@@ -470,3 +470,20 @@ This slice enables:
 3. Should AI-extracted facts require user confirmation before appearing in the main property record?
 4. What is the minimum HomeTruth Report for MVP: homeowner-only summary, shareable PDF, or partner-readable API object?
 5. What privacy boundary applies to behavioural/psychographic profile data?
+
+## Personal-agent access and internal operations
+
+HT-FLOW-005 models a homeowner delegating limited read access to an external software client. The existing Property Person relationship establishes authority over a home. The following concepts describe the additional relationships. Connect your agent is a roadmap feature.
+
+| Concept | Relationship and lifecycle |
+| --- | --- |
+| External agent client | Identifies the provider and client surface receiving delegated access. The estate-agent relationship on Property Person continues to describe a person’s role. |
+| Delegated grant | Connects a granting person, external client, selected property, purpose and approved reading scopes. Record expiry and revocation. Check current property and document permissions at each read. |
+| Provider capability and availability | Describes a client surface, operation, eligible account or region, validation evidence and release status. A provider-specific release decision governs when the control appears. |
+| Agent definition and operation | A versioned internal registry entry declares operations, input/output schemas, allowed tools, permitted children and limits. The proposed first entry is appliance-information@1 with findManual. |
+| Agent run and review result | A run pins the revision and request key to a principal and resource. A validated candidate survives reload for authorised review until expiry. A delegated child inherits a narrower scope and shares the parent budget and deadline. |
+| Physical item and item evidence | HomeItem identifies one physical appliance at a property. HomeItemEvidence associates reviewed evidence with that item. The homeowner confirms a candidate and the appliance service verifies the manual before saving the document and association. |
+
+HT-341 provides the appliance-specific implementation. The shared runtime is specified in the [agent SDK integration specification](https://github.com/jasonlryan/HomeTruth-fe/blob/4dca43a671a3e7f2bf98a3686c21527608673987/src/user-flows/agent-sdk-integration.md). External access follows the [owner-grant and MCP workflow](https://github.com/jasonlryan/HomeTruth-fe/blob/4dca43a671a3e7f2bf98a3686c21527608673987/src/user-flows/HT-FLOW-005.md). Ask HomeTruth conversations, internal agent runs and owner grants have separate lifecycles.
+
+Open decisions include delegation authority and duration, permitted disclosures, provider eligibility and release ownership, the proposed 30-day lifetime for review results, and the first task that warrants a coordinating agent.
