@@ -23,8 +23,9 @@ frontend env files and shell values can override these settings. Never copy
 backend credentials into frontend configuration. Preserve existing credentials
 when adopting `.env.example` from a new checkout.
 
-HT-301 removes obsolete staging commands and endpoints in backend PR 15 and
-frontend PR 17. Those code changes require PR merge before they become main.
+HT-301 removed obsolete staging commands and endpoints in backend PR 15 and
+frontend PR 17. Both PRs merged into main on 19 November 2026. The active local
+checkouts were updated, restarted and passed a quick authenticated smoke test.
 The active local frontend env files have already been corrected and its retired
 `.env_staging` file removed. No database changes are part of this cleanup.
 
