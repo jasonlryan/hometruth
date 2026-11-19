@@ -9,6 +9,15 @@
 
 This is the persistent handoff for agents working in the HomeTruth workspace. It records the delivery flow already established here so that a new session can continue without recreating process, branch or review decisions.
 
+## Current Environment
+
+As confirmed on 19 November 2026, HomeTruth runs locally only. No hosted staging
+or production environment exists. The `-staging` folder suffixes and old team
+server references are historical, not deployment destinations. Use
+[Environment status](environment-status.md) for current addresses and future
+hosting safeguards. Do not describe local smoke tests as staging verification,
+or GitHub merges and optimised builds as deployments.
+
 ## Workspace And Source Of Truth
 
 | Repository | Role |
